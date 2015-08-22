@@ -1,3 +1,36 @@
-<h1>Guests#index</h1>
-<p>Find me in app/views/guests/index.html.erb</p>
+<div class="page-header">
+  <h1>
+    Guests
+    <a href="/guests/new" class="btn btn-lg btn-success">New Guest</a>
+  </h1>
+</div>
 
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Party</th>
+        <th>Item</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.name %></td>
+        <td><%= guest.email %></td>
+        <td><%= guest.gender %></td>
+        <td><%= guest.party_id %></td>
+        <td><%= guest.item_id %></td>
+        <td>
+          <a href="/guests/<%= guest.id %>" class="btn btn-primary">Show</a>
+          <a href="/guests/<%= guest.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_guest/<%= guest.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
