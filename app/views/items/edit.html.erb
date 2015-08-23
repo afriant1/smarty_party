@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @item.errors.any? %>
+  <% @item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Item #<%= @item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_item/<%= @item.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @item.name %>">
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @item.amount %>">
+      </div>
+
+      <!-- Label and input for units -->
+      <div class="form-group">
+        <label for="units" class="control-label">
+          Units
+        </label>
+
+        <input type="text" id="units" name="units" placeholder="Units" class="form-control" value="<%= @item.units %>">
+      </div>
+
+      <!-- Label and input for serving_size -->
+      <div class="form-group">
+        <label for="serving_size" class="control-label">
+          Serving size
+        </label>
+
+        <input type="text" id="serving_size" name="serving_size" placeholder="Serving size" class="form-control" value="<%= @item.serving_size %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @item.price %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Item
+      </button>
+      or
+      <a href="/items/<%= @item.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
