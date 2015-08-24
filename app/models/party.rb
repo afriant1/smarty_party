@@ -5,4 +5,7 @@ class Party < ActiveRecord::Base
   validates :food_level, :presence => true, :numericality => true
   validates :drink_level, :presence => true, :numericality => true
   validates :budget, :presence => true, :numericality => true
+
+  has_many :guests
+  has_many :items
 end

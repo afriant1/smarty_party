@@ -4,4 +4,9 @@ class ShoppingList < ActiveRecord::Base
   validates :amount, :presence => true, :numericality => true
   validates :delegation_status, :presence => true, :format => {:with => /\A[a-zA-Z]+\z/}
   validates :user_id, :presence => true, :numericality => true
+
+  belongs_to :party
+  has_many :items
+  has_many :guests
+
 end

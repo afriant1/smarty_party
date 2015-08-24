@@ -3,4 +3,7 @@ class Guest < ActiveRecord::Base
   validates :email, :presence => true
   validates :party_id, :presence => true
   validates :gender, :presence => true
+
+  belongs_to :party
+  has_many :items
 end
