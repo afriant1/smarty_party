@@ -6,6 +6,7 @@ class ShoppingList < ActiveRecord::Base
   validates :user_id, :presence => true, :numericality => true
 
   belongs_to :party
+  belongs_to :user
   has_many :items
   has_many :guests
 
