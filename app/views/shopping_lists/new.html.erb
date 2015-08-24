@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Shopping List</h3>
+  <h3>Add to Shopping List</h3>
 </div>
 
 <div class="row">
@@ -24,7 +24,8 @@
           Item
         </label>
 
-        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @shopping_list.item_id %>">
+        <%= select_tag :item_id, options_from_collection_for_select(Item.all, :id, :name, @shopping_list.item_id), :class => "form-control" %>
+
       </div>
 
       <!-- Label and input for party_id -->
@@ -33,7 +34,7 @@
           Party
         </label>
 
-        <input type="text" id="party_id" name="party_id" placeholder="Party" class="form-control" value="<%= @shopping_list.party_id %>">
+        <input type="text" id="party_id" name="party_id" class="form-control" value="<%= @shopping_list.party_id %>">
       </div>
 
       <!-- Label and input for servings -->

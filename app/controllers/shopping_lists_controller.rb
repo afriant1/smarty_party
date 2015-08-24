@@ -21,7 +21,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list.user_id = params[:user_id]
     @shopping_list.completion_status = params[:completion_status]
 
-    if @shopping_list.save
+   if @shopping_list.save
       redirect_to "/shopping_lists", :notice => "Shopping list created successfully."
     else
       render 'new'
