@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  # Routes for the Shopping_list resource:
+  # CREATE
+  get "/shopping_lists/new", :controller => "shopping_lists", :action => "new"
+  post "/create_shopping_list", :controller => "shopping_lists", :action => "create"
+
+  # READ
+  get "/shopping_lists", :controller => "shopping_lists", :action => "index"
+  get "/shopping_lists/:id", :controller => "shopping_lists", :action => "show"
+
+  # UPDATE
+  get "/shopping_lists/:id/edit", :controller => "shopping_lists", :action => "edit"
+  post "/update_shopping_list/:id", :controller => "shopping_lists", :action => "update"
+
+  # DELETE
+  get "/delete_shopping_list/:id", :controller => "shopping_lists", :action => "destroy"
+  #------------------------------
+
   # Routes for the Party resource:
   # CREATE
   get "/parties/new", :controller => "parties", :action => "new"

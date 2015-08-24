@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @shopping_list.errors.any? %>
+  <% @shopping_list.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Shopping List</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_shopping_list" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for item_id -->
+      <div class="form-group">
+        <label for="item_id" class="control-label">
+          Item
+        </label>
+
+        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @shopping_list.item_id %>">
+      </div>
+
+      <!-- Label and input for party_id -->
+      <div class="form-group">
+        <label for="party_id" class="control-label">
+          Party
+        </label>
+
+        <input type="text" id="party_id" name="party_id" placeholder="Party" class="form-control" value="<%= @shopping_list.party_id %>">
+      </div>
+
+      <!-- Label and input for servings -->
+      <div class="form-group">
+        <label for="servings" class="control-label">
+          Servings
+        </label>
+
+        <input type="text" id="servings" name="servings" placeholder="Servings" class="form-control" value="<%= @shopping_list.servings %>">
+      </div>
+
+      <!-- Label and input for serving_price -->
+      <div class="form-group">
+        <label for="serving_price" class="control-label">
+          Serving price
+        </label>
+
+        <input type="text" id="serving_price" name="serving_price" placeholder="Serving price" class="form-control" value="<%= @shopping_list.serving_price %>">
+      </div>
+
+      <!-- Label and input for delegation_status -->
+      <div class="form-group">
+        <label for="delegation_status" class="control-label">
+          Delegation status
+        </label>
+
+        <input type="text" id="delegation_status" name="delegation_status" placeholder="Delegation status" class="form-control" value="<%= @shopping_list.delegation_status %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @shopping_list.user_id %>">
+      </div>
+
+      <!-- Label and input for completion_status -->
+      <div class="form-group">
+        <label for="completion_status" class="control-label">
+          Completion status
+        </label>
+
+        <input type="text" id="completion_status" name="completion_status" placeholder="Completion status" class="form-control" value="<%= @shopping_list.completion_status %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Shopping List
+      </button>
+      or
+      <a href="/shopping_lists">Cancel</a>
+    </form>
+  </div>
+</div>
