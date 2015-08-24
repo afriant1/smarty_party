@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h3>Party #<%= @party.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @party.name %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @party.date %></dd>
+
+      <dt>Duration</dt>
+      <dd><%= @party.duration %></dd>
+
+      <dt>Male count</dt>
+      <dd><%= @party.male_count %></dd>
+
+      <dt>Female count</dt>
+      <dd><%= @party.female_count %></dd>
+
+      <dt>Food level</dt>
+      <dd><%= @party.food_level %></dd>
+
+      <dt>Drink level</dt>
+      <dd><%= @party.drink_level %></dd>
+
+      <dt>Budget</dt>
+      <dd><%= @party.budget %></dd>
+
+      <dt>Appetizer course</dt>
+      <dd><%= @party.appetizer_course %></dd>
+
+      <dt>Entree course</dt>
+      <dd><%= @party.entree_course %></dd>
+
+      <dt>Dessert course</dt>
+      <dd><%= @party.dessert_course %></dd>
+
+      <dt>Alcohol course</dt>
+      <dd><%= @party.alcohol_course %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/parties" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/parties/<%= @party.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_party/<%= @party.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

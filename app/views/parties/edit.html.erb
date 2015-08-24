@@ -1,0 +1,136 @@
+<!-- Validation failure messages -->
+<% if @party.errors.any? %>
+  <% @party.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Party #<%= @party.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_party/<%= @party.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @party.name %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @party.date %>">
+      </div>
+
+      <!-- Label and input for duration -->
+      <div class="form-group">
+        <label for="duration" class="control-label">
+          Duration
+        </label>
+
+        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @party.duration %>">
+      </div>
+
+      <!-- Label and input for male_count -->
+      <div class="form-group">
+        <label for="male_count" class="control-label">
+          Male count
+        </label>
+
+        <input type="text" id="male_count" name="male_count" placeholder="Male count" class="form-control" value="<%= @party.male_count %>">
+      </div>
+
+      <!-- Label and input for female_count -->
+      <div class="form-group">
+        <label for="female_count" class="control-label">
+          Female count
+        </label>
+
+        <input type="text" id="female_count" name="female_count" placeholder="Female count" class="form-control" value="<%= @party.female_count %>">
+      </div>
+
+      <!-- Label and input for food_level -->
+      <div class="form-group">
+        <label for="food_level" class="control-label">
+          Food level
+        </label>
+
+        <input type="text" id="food_level" name="food_level" placeholder="Food level" class="form-control" value="<%= @party.food_level %>">
+      </div>
+
+      <!-- Label and input for drink_level -->
+      <div class="form-group">
+        <label for="drink_level" class="control-label">
+          Drink level
+        </label>
+
+        <input type="text" id="drink_level" name="drink_level" placeholder="Drink level" class="form-control" value="<%= @party.drink_level %>">
+      </div>
+
+      <!-- Label and input for budget -->
+      <div class="form-group">
+        <label for="budget" class="control-label">
+          Budget
+        </label>
+
+        <input type="text" id="budget" name="budget" placeholder="Budget" class="form-control" value="<%= @party.budget %>">
+      </div>
+
+      <!-- Label and input for appetizer_course -->
+      <div class="form-group">
+        <label for="appetizer_course" class="control-label">
+          Appetizer course
+        </label>
+
+        <input type="text" id="appetizer_course" name="appetizer_course" placeholder="Appetizer course" class="form-control" value="<%= @party.appetizer_course %>">
+      </div>
+
+      <!-- Label and input for entree_course -->
+      <div class="form-group">
+        <label for="entree_course" class="control-label">
+          Entree course
+        </label>
+
+        <input type="text" id="entree_course" name="entree_course" placeholder="Entree course" class="form-control" value="<%= @party.entree_course %>">
+      </div>
+
+      <!-- Label and input for dessert_course -->
+      <div class="form-group">
+        <label for="dessert_course" class="control-label">
+          Dessert course
+        </label>
+
+        <input type="text" id="dessert_course" name="dessert_course" placeholder="Dessert course" class="form-control" value="<%= @party.dessert_course %>">
+      </div>
+
+      <!-- Label and input for alcohol_course -->
+      <div class="form-group">
+        <label for="alcohol_course" class="control-label">
+          Alcohol course
+        </label>
+
+        <input type="text" id="alcohol_course" name="alcohol_course" placeholder="Alcohol course" class="form-control" value="<%= @party.alcohol_course %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Party
+      </button>
+      or
+      <a href="/parties/<%= @party.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
