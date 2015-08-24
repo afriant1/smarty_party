@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @appetizers = Item.where(category: ["Appetizer"])
+    @entrees = Item.where(category: ["Entree"])
+    @desserts = Item.where(category: ["Dessert"])
+    @beverages = Item.where(category: ["Beverage"])
+
   end
 
   def show

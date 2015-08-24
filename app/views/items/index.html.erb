@@ -5,12 +5,17 @@
   </h1>
 </div>
 
+<div class="row-header">
+  <h3>
+    Appetizers
+  </h3>
+</div>
+
 <div class="row">
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
         <th>Name</th>
-        <th>Category</th>
         <th>Amount</th>
         <th>Units</th>
         <th>Serving size</th>
@@ -18,18 +23,125 @@
         <th>Actions</th>
       </tr>
 
-      <% @items.each do |item| %>
+      <% @appetizers.each do |appetizer| %>
       <tr>
-        <td><%= item.name %></td>
-        <td><%= item.category %></td>
-        <td><%= item.amount %></td>
-        <td><%= item.units %></td>
-        <td><%= item.serving_size %></td>
-        <td><%= item.price %></td>
+        <td><%= appetizer.name %></td>
+        <td><%= appetizer.amount %></td>
+        <td><%= appetizer.units %></td>
+        <td><%= appetizer.serving_size %></td>
+        <td><%= appetizer.price %></td>
         <td>
-          <a href="/items/<%= item.id %>" class="btn btn-primary">Show</a>
-          <a href="/items/<%= item.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_item/<%= item.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/items/<%= appetizer.id %>" class="btn btn-primary">Show</a>
+          <a href="/items/<%= appetizer.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_item/<%= appetizer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row-header">
+  <h3>
+    Entrees
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Units</th>
+        <th>Serving size</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @entrees.each do |entree| %>
+      <tr>
+        <td><%= entree.name %></td>
+        <td><%= entree.amount %></td>
+        <td><%= entree.units %></td>
+        <td><%= entree.serving_size %></td>
+        <td><%= entree.price %></td>
+        <td>
+          <a href="/items/<%= entree.id %>" class="btn btn-primary">Show</a>
+          <a href="/items/<%= entree.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_item/<%= entree.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row-header">
+  <h3>
+    Desserts
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Units</th>
+        <th>Serving size</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @desserts.each do |dessert| %>
+      <tr>
+        <td><%= dessert.name %></td>
+        <td><%= dessert.amount %></td>
+        <td><%= dessert.units %></td>
+        <td><%= dessert.serving_size %></td>
+        <td><%= dessert.price %></td>
+        <td>
+          <a href="/items/<%= dessert.id %>" class="btn btn-primary">Show</a>
+          <a href="/items/<%= dessert.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_item/<%= dessert.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row-header">
+  <h3>
+    Beverages
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Units</th>
+        <th>Serving size</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @beverages.each do |beverage| %>
+      <tr>
+        <td><%= beverage.name %></td>
+        <td><%= beverage.amount %></td>
+        <td><%= beverage.units %></td>
+        <td><%= beverage.serving_size %></td>
+        <td><%= beverage.price %></td>
+        <td>
+          <a href="/items/<%= beverage.id %>" class="btn btn-primary">Show</a>
+          <a href="/items/<%= beverage.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_item/<%= beverage.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
