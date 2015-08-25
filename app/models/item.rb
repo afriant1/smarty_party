@@ -4,5 +4,5 @@ class Item < ActiveRecord::Base
   validates :units, :presence => true, :format => {:with => /\A[a-zA-Z]+\z/, :message => "only allows letters"}
   validates :price, :presence => true, :numericality => true
 
-  has_many :parties
+  has_many :shopping_lists
 end

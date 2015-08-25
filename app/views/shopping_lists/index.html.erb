@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Shopping lists
-    <a href="/shopping_lists/new" class="btn btn-lg btn-success">New Shopping list</a>
+    <a href="/shopping_lists/new" class="btn btn-lg btn-success">Add New Item</a>
   </h1>
 </div>
 
@@ -21,10 +21,10 @@
 
       <% @shopping_lists.each do |shopping_list| %>
       <tr>
-        <td><%= shopping_list.item_id %></td>
-        <td><%= shopping_list.party_id %></td>
-        <td><%= shopping_list.servings %></td>
-        <td><%= shopping_list.serving_price %></td>
+        <td><%= shopping_list.item.name %></td>
+        <td><%= shopping_list.party.name %></td>
+        <td><%= shopping_list.item.serving_size %></td>
+        <td><%= number_to_currency(shopping_list.item.price) %></td>
         <td><%= shopping_list.delegation_status %></td>
         <td><%= shopping_list.user_id %></td>
         <td><%= shopping_list.completion_status %></td>

@@ -34,43 +34,12 @@
           <a href="/items/<%= appetizer.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= appetizer.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_item/<%= appetizer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-
-<div class="row">
-  <div class="col-md-12">
-    <form action="/create_shopping_list" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for item_id -->
-      <div class="form-group">
-        <label for="item_id" class="control-label">
-          Item
-        </label>
-
-        <input type="text" id="item_id" name="item_id" class="form-control" value="<%= appetizer.id %>">
-      </div>
-
-      <!-- Label and input for party_id -->
-      <div class="form-group">
-        <label for="party_id" class="control-label">
-          Party
-        </label>
-
-        <input type="text" id="party_id" name="party_id" class="form-control" value="1">
-      </div>
-
-      <button class="btn btn-success">
-        Add to Party
-      </button>
-    </form>
-  </div>
-
           <form action="/create_shopping_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-          <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= appetizer.id %>">
-          <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-          <a href="/shopping_lists/create" class="btn btn-success" rel="nofollow">Add to Party</a></form>
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= appetizer.id %>">
+            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
+             <button class="btn btn-success"> Add to Party</button>
+          </form>
         </td>
       </tr>
       <% end %>
@@ -107,6 +76,12 @@
           <a href="/items/<%= entree.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= entree.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_item/<%= entree.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <form action="/create_shopping_list" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= entree.id %>">
+            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
+             <button class="btn btn-success"> Add to Party</button>
+          </form>
         </td>
       </tr>
       <% end %>
@@ -143,6 +118,12 @@
           <a href="/items/<%= dessert.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= dessert.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_item/<%= dessert.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <form action="/create_shopping_list" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= dessert.id %>">
+            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
+             <button class="btn btn-success"> Add to Party</button>
+          </form>
         </td>
       </tr>
       <% end %>
@@ -179,6 +160,12 @@
           <a href="/items/<%= beverage.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= beverage.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_item/<%= beverage.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <form action="/create_shopping_list" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= beverage.id %>">
+            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
+             <button class="btn btn-success"> Add to Party</button>
+          </form>
         </td>
       </tr>
       <% end %>

@@ -4,7 +4,8 @@ class ShoppingList < ActiveRecord::Base
 
   belongs_to :party
   belongs_to :user
+  belongs_to :item
+
   has_many :items
-  has_many :guests
 
 end

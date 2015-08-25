@@ -53,21 +53,21 @@
 
       <!-- Label and input for male_count -->
       <div class="form-group">
-        <label for="male_count" class="control-label">
+      <table>
+      <tr>
+        <td><label for="male_count" class="control-label">
           Male count
-        </label>
-
-        <input type="text" id="male_count" name="male_count" placeholder="Male count" class="form-control" value="<%= @party.male_count %>">
-      </div>
-
-      <!-- Label and input for female_count -->
-      <div class="form-group">
-        <label for="female_count" class="control-label">
+        </label></td>
+        <td><label for="female_count" class="control-label">
           Female count
-        </label>
-
-        <input type="text" id="female_count" name="female_count" placeholder="Female count" class="form-control" value="<%= @party.female_count %>">
-      </div>
+        </label></td>
+      </tr>
+      <td>
+        <input type="text" id="male_count" name="male_count" placeholder="Male count" class="form-control" value="<%= @party.male_count %>"></td>
+      <td>
+        <input type="text" id="female_count" name="female_count" placeholder="Female count" class="form-control" value="<%= @party.female_count %>"></td>
+      </table>
+    </div>
 
       <!-- Label and input for food_level -->
       <div class="form-group">
@@ -75,8 +75,11 @@
           Food level
         </label>
 
-        <input type="text" id="food_level" name="food_level" placeholder="Food level" class="form-control" value="<%= @party.food_level %>">
-      </div>
+      <div id="slider">
+        <input class = "bar" type="range" id="food_level" name="food_level" value="<%= @party.food_level %>" min = "0" max = "5" step = "1">
+        <span class="highlight"></span>
+        </div>
+        </div>
 
       <!-- Label and input for drink_level -->
       <div class="form-group">
@@ -84,52 +87,52 @@
           Drink level
         </label>
 
-        <input type="text" id="drink_level" name="drink_level" placeholder="Drink level" class="form-control" value="<%= @party.drink_level %>">
-      </div>
+      <div id="slider">
+        <input class = "bar" type="range" id="drink_level" name="drink_level" value="<%= @party.drink_level %>" min = "0" max = "5" step = "1">
+        <span class="highlight"></span>
+        </div>
+        </div>
 
       <!-- Label and input for budget -->
       <div class="form-group">
         <label for="budget" class="control-label">
           Budget
         </label>
-
-        <input type="text" id="budget" name="budget" placeholder="Budget" class="form-control" value="<%= @party.budget %>">
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+            <input type="text" id="budget" name="budget" placeholder="Budget" class="form-control" value="<%= @party.budget %>">
+          <span class="input-group-addon">.00</span>
+        </div>
       </div>
 
       <!-- Label and input for appetizer_course -->
       <div class="form-group">
-        <label for="appetizer_course" class="control-label">
+      <label for="courses" class="control-label">Courses</label>
+      </div>
+      <div class = "form-inline">
+        <label for="appetizer_course">
           Appetizer course
         </label>
 
-        <input type="text" id="appetizer_course" name="appetizer_course" placeholder="Appetizer course" class="form-control" value="<%= @party.appetizer_course %>">
-      </div>
+        <input type="checkbox" id="appetizer_course" name="appetizer_course" placeholder="Appetizer" class="form-inline" value="<%= @party.appetizer_course %>">
 
-      <!-- Label and input for entree_course -->
-      <div class="form-group">
         <label for="entree_course" class="control-label">
           Entree course
         </label>
 
-        <input type="text" id="entree_course" name="entree_course" placeholder="Entree course" class="form-control" value="<%= @party.entree_course %>">
-      </div>
+        <input type="checkbox" id="entree_course" name="entree_course" placeholder="Entree" class="form-inline" value="<%= @party.entree_course %>">
 
-      <!-- Label and input for dessert_course -->
-      <div class="form-group">
         <label for="dessert_course" class="control-label">
           Dessert course
         </label>
 
-        <input type="text" id="dessert_course" name="dessert_course" placeholder="Dessert course" class="form-control" value="<%= @party.dessert_course %>">
-      </div>
+        <input type="checkbox" id="dessert_course" name="dessert_course" placeholder="Dessert" class="form-inline" value="<%= @party.dessert_course %>">
 
-      <!-- Label and input for alcohol_course -->
-      <div class="form-group">
         <label for="alcohol_course" class="control-label">
           Alcohol course
         </label>
 
-        <input type="text" id="alcohol_course" name="alcohol_course" placeholder="Alcohol course" class="form-control" value="<%= @party.alcohol_course %>">
+        <input type="checkbox" id="alcohol_course" name="alcohol_course" placeholder="Alcohol" class="form-inline" value="<%= @party.alcohol_course %>">
       </div>
 
       <button class="btn btn-success">
