@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root 'pages#dashboard'
+
   # Routes for the Shopping_list resource:
   # CREATE
   get "/shopping_lists/new", :controller => "shopping_lists", :action => "new"
