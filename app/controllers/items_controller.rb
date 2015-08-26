@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
     @appetizers = Item.where(category: ["Appetizer"])
     @entrees = Item.where(category: ["Entree"])
     @desserts = Item.where(category: ["Dessert"])
-    @beverages = Item.where(category: ["Beverage"])
+    @beverages = Item.where(category: ["Alcohol", "Non-Alcohol"])
+    @other = Item.where(category: ["Flatware", "Other"])
 
   end
 

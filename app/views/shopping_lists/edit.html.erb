@@ -36,22 +36,13 @@
         <input type="text" id="party_id" name="party_id" placeholder="Party" class="form-control" value="<%= @shopping_list.party_id %>">
       </div>
 
-      <!-- Label and input for servings -->
+      <!-- Label and input for quantity -->
       <div class="form-group">
-        <label for="servings" class="control-label">
-          Servings
+        <label for="quantity" class="control-label">
+          Quantity
         </label>
 
-        <input type="text" id="servings" name="servings" placeholder="Servings" class="form-control" value="<%= @shopping_list.servings %>">
-      </div>
-
-      <!-- Label and input for serving_price -->
-      <div class="form-group">
-        <label for="serving_price" class="control-label">
-          Serving price
-        </label>
-
-        <input type="text" id="serving_price" name="serving_price" placeholder="Serving price" class="form-control" value="<%= @shopping_list.serving_price %>">
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" class="form-control" value="<%= @shopping_list.quantity %>">
       </div>
 
       <!-- Label and input for delegation_status -->
@@ -72,13 +63,13 @@
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @shopping_list.user_id %>">
       </div>
 
-      <!-- Label and input for completion_status -->
+      <!-- Label and input for notes -->
       <div class="form-group">
-        <label for="completion_status" class="control-label">
-          Completion status
+        <label for="notes" class="control-label">
+          Notes
         </label>
 
-        <input type="text" id="completion_status" name="completion_status" placeholder="Completion status" class="form-control" value="<%= @shopping_list.completion_status %>">
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @shopping_list.notes %>">
       </div>
 
       <button class="btn btn-warning">

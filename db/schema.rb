@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825143308) do
+ActiveRecord::Schema.define(version: 20150826161217) do
 
   create_table "guests", force: :cascade do |t|
     t.string   "name"
@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 20150825143308) do
   create_table "shopping_lists", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "party_id"
-    t.integer  "servings"
-    t.float    "serving_price"
     t.string   "delegation_status"
     t.integer  "user_id"
     t.string   "completion_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "quantity"
+    t.string   "notes"
   end
 
   create_table "users", force: :cascade do |t|

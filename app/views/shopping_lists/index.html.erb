@@ -12,11 +12,16 @@
         <th>Category</th>
         <th>Item</th>
         <th>Party</th>
+        <th>Amount</th>
+        <th>Units</th>
         <th>Servings</th>
-        <th>Serving price</th>
+        <th>Item price</th>
+        <th>Quantity</th>
+        <th>Total Servings</th>
+        <th>Total Cost</th>
         <th>Delegation status</th>
         <th>Owner</th>
-        <th>Completion status</th>
+        <th>Notes</th>
         <th>Actions</th>
       </tr>
 
@@ -25,11 +30,16 @@
         <td><%= party_request_list.item.category %></td>
         <td><%= party_request_list.item.name %></td>
         <td><%= party_request_list.party.name %></td>
+        <td><%= party_request_list.item.amount %></td>
+        <td><%= party_request_list.item.units %></td>
         <td><%= party_request_list.item.serving_size %></td>
         <td><%= number_to_currency(party_request_list.item.price) %></td>
+        <td><%= party_request_list.quantity %></td>
+        <td><%= party_request_list.quantity.to_i*party_request_list.item.amount.to_i %></td>
+        <td><%= number_to_currency("10") %></td>
         <td><%= party_request_list.delegation_status %></td>
         <td><%= party_request_list.user_id %></td>
-        <td><%= party_request_list.completion_status %></td>
+        <td><%= party_request_list.notes %></td>
         <td>
           <a href="/shopping_lists/<%= party_request_list.id %>" class="btn btn-primary">Show</a>
           <a href="/shopping_lists/<%= party_request_list.id %>/edit" class="btn btn-warning">Edit</a>

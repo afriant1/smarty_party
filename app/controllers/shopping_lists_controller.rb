@@ -2,6 +2,8 @@ class ShoppingListsController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all
     @party_request_lists = @shopping_lists.where(:party_id => params[:id])
+    #@total_servings = @shopping_lists.quantity.to_i
+    #@total_cost = (@party_request_lists.item.price/@party_request_lists.item.serving_size)*(@total_servings).to_f
   end
 
   def show
@@ -16,11 +18,10 @@ class ShoppingListsController < ApplicationController
     @shopping_list = ShoppingList.new
     @shopping_list.item_id = params[:item_id]
     @shopping_list.party_id = params[:party_id]
-    @shopping_list.servings = params[:servings]
-    @shopping_list.serving_price = params[:serving_price]
+    @shopping_list.quantity = params[:quantity]
     @shopping_list.delegation_status = params[:delegation_status]
     @shopping_list.user_id = params[:user_id]
-    @shopping_list.completion_status = params[:completion_status]
+    @shopping_list.notes = params[:notes]
 
    if @shopping_list.save
       redirect_to :action => "index", :id => @shopping_list.party_id, :notice => "Item added to party."
@@ -38,11 +39,10 @@ class ShoppingListsController < ApplicationController
 
     @shopping_list.item_id = params[:item_id]
     @shopping_list.party_id = params[:party_id]
-    @shopping_list.servings = params[:servings]
-    @shopping_list.serving_price = params[:serving_price]
+    @shopping_list.quantity = params[:quantity]
     @shopping_list.delegation_status = params[:delegation_status]
     @shopping_list.user_id = params[:user_id]
-    @shopping_list.completion_status = params[:completion_status]
+    @shopping_list.notes = params[:notes]
 
     if @shopping_list.save
       redirect_to :action => "index", :id => @shopping_list.party_id, :notice => "Item updated successfully."
