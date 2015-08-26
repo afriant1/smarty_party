@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Shopping lists
-    <a href="/shopping_lists/new" class="btn btn-lg btn-success">Add New Item</a>
+    Shopping list
+    <a href="/parties/:id/shopping_lists/new" class="btn btn-lg btn-success">Add New Item</a>
   </h1>
 </div>
 
@@ -9,29 +9,31 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Category</th>
         <th>Item</th>
         <th>Party</th>
         <th>Servings</th>
         <th>Serving price</th>
         <th>Delegation status</th>
-        <th>User</th>
+        <th>Owner</th>
         <th>Completion status</th>
         <th>Actions</th>
       </tr>
 
-      <% @shopping_lists.each do |shopping_list| %>
+      <% @party_request_lists.each do |party_request_list| %>
       <tr>
-        <td><%= shopping_list.item.name %></td>
-        <td><%= shopping_list.party.name %></td>
-        <td><%= shopping_list.item.serving_size %></td>
-        <td><%= number_to_currency(shopping_list.item.price) %></td>
-        <td><%= shopping_list.delegation_status %></td>
-        <td><%= shopping_list.user_id %></td>
-        <td><%= shopping_list.completion_status %></td>
+        <td><%= party_request_list.item.category %></td>
+        <td><%= party_request_list.item.name %></td>
+        <td><%= party_request_list.party.name %></td>
+        <td><%= party_request_list.item.serving_size %></td>
+        <td><%= number_to_currency(party_request_list.item.price) %></td>
+        <td><%= party_request_list.delegation_status %></td>
+        <td><%= party_request_list.user_id %></td>
+        <td><%= party_request_list.completion_status %></td>
         <td>
-          <a href="/shopping_lists/<%= shopping_list.id %>" class="btn btn-primary">Show</a>
-          <a href="/shopping_lists/<%= shopping_list.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_shopping_list/<%= shopping_list.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/shopping_lists/<%= party_request_list.id %>" class="btn btn-primary">Show</a>
+          <a href="/shopping_lists/<%= party_request_list.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_shopping_list/<%= party_request_list.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>

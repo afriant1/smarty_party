@@ -28,12 +28,12 @@
       <tr>
         <td><%= party.name %></td>
         <td><%= party.date %></td>
-        <td><%= party.duration %></td>
+        <td><%= party.duration %> hours</td>
         <td><%= party.male_count %></td>
         <td><%= party.female_count %></td>
         <td><%= party.food_level %></td>
         <td><%= party.drink_level %></td>
-        <td><%= party.budget %></td>
+        <td><%= number_to_currency(party.budget) %></td>
         <td><%= party.appetizer_course %></td>
         <td><%= party.entree_course %></td>
         <td><%= party.dessert_course %></td>
@@ -42,6 +42,7 @@
           <a href="/parties/<%= party.id %>" class="btn btn-primary">Show</a>
           <a href="/parties/<%= party.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_party/<%= party.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/parties/<%= party.id %>/shopping_list" class="btn btn-success" rel="nofollow">Shopping List</a>
         </td>
       </tr>
       <% end %>

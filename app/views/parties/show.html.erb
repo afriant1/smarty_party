@@ -1,24 +1,19 @@
 <div class="page-header">
-  <h3>Party #<%= @party.id %></h3>
+  <h3><%= @party.name %></h3>
+</div>
+
+<div class="page-header">
+  <h4>Party Profile</h4>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @party.name %></dd>
-
       <dt>Date</dt>
       <dd><%= @party.date %></dd>
 
       <dt>Duration</dt>
-      <dd><%= @party.duration %></dd>
-
-      <dt>Male count</dt>
-      <dd><%= @party.male_count %></dd>
-
-      <dt>Female count</dt>
-      <dd><%= @party.female_count %></dd>
+      <dd><%= @party.duration %> hours</dd>
 
       <dt>Food level</dt>
       <dd><%= @party.food_level %></dd>
@@ -26,22 +21,53 @@
       <dt>Drink level</dt>
       <dd><%= @party.drink_level %></dd>
 
-      <dt>Budget</dt>
-      <dd><%= @party.budget %></dd>
+      <dt>Male count</dt>
+      <dd><%= @party.male_count %></dd>
 
-      <dt>Appetizer course</dt>
+      <dt>Female count</dt>
+      <dd><%= @party.female_count %></dd>
+
+      <dt>Budget</dt>
+      <dd><%= number_to_currency(@party.budget) %></dd>
+
+      <dt>Appetizer</dt>
       <dd><%= @party.appetizer_course %></dd>
 
-      <dt>Entree course</dt>
+      <dt>Entree</dt>
       <dd><%= @party.entree_course %></dd>
 
-      <dt>Dessert course</dt>
+      <dt>Dessert</dt>
       <dd><%= @party.dessert_course %></dd>
 
-      <dt>Alcohol course</dt>
+      <dt>Alcohol</dt>
       <dd><%= @party.alcohol_course %></dd>
 
     </dl>
+
+<div class="page-header">
+  <h4>Food and Drink Requirements</h4>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Appetizers</dt>
+      <dd><%= @appetizer_calc%> pieces</dd>
+
+      <dt>Entrees</dt>
+      <dd><%=@entree_calc%> meals</dd>
+
+      <dt>Desserts</dt>
+      <dd><%= @dessert_calc%> pieces</dd>
+
+      <dt>Alcohol</dt>
+      <dd><%= @alcohol_calc%> drinks</dd>
+
+      <dt>Flatware</dt>
+      <dd><%= @flatware_calc%> sets</dd>
+    </dl>
+  </div>
+ </div>
 
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">

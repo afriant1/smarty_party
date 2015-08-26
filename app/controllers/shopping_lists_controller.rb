@@ -1,6 +1,7 @@
 class ShoppingListsController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all
+    @party_request_lists = @shopping_lists.where(:party_id => params[:id])
   end
 
   def show
@@ -22,7 +23,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list.completion_status = params[:completion_status]
 
    if @shopping_list.save
-      redirect_to "/shopping_lists", :notice => "Shopping list created successfully."
+      redirect_to :action => "index", :id => @shopping_list.party_id, :notice => "Item added to party."
     else
       render 'new'
     end
@@ -44,7 +45,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list.completion_status = params[:completion_status]
 
     if @shopping_list.save
-      redirect_to "/shopping_lists", :notice => "Shopping list updated successfully."
+      redirect_to :action => "index", :id => @shopping_list.party_id, :notice => "Item updated successfully."
     else
       render 'edit'
     end
@@ -55,6 +56,6 @@ class ShoppingListsController < ApplicationController
 
     @shopping_list.destroy
 
-    redirect_to "/shopping_lists", :notice => "Shopping list deleted."
+    redirect_to :action => "index", :id => @shopping_list.party_id, :notice => "Item deleted."
   end
 end
