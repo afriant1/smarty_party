@@ -1,9 +1,41 @@
 <div class="page-header">
   <h1>
-    Shopping list
+  Shopping list
     <a href="/parties/:id/shopping_lists/new" class="btn btn-lg btn-success">Add New Item</a>
   </h1>
 </div>
+
+<div class="page-header">
+  <h4>Food & Drink Totals</h4>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Appetizers</dt>
+      <dd>###</dd>
+
+      <dt>Entrees</dt>
+      <dd>2 meals</dd>
+
+      <dt>Desserts</dt>
+      <dd>2 pieces</dd>
+
+      <dt>Non-Alcohol</dt>
+      <dd>2 drinks</dd>
+
+      <dt>Alcohol</dt>
+      <dd>2 drinks</dd>
+
+      <dt>Flatware</dt>
+      <dd>2 sets</dd>
+
+      <dt>Budget</dt>
+      <dd>400</dd>
+    </dl>
+  </div>
+ </div>
+
 
 <div class="row">
   <div class="col-md-12">
@@ -11,9 +43,7 @@
       <tr>
         <th>Category</th>
         <th>Item</th>
-        <th>Party</th>
-        <th>Amount</th>
-        <th>Units</th>
+        <th>Purchase Unit</th>
         <th>Servings</th>
         <th>Item price</th>
         <th>Quantity</th>
@@ -29,14 +59,12 @@
       <tr>
         <td><%= party_request_list.item.category %></td>
         <td><%= party_request_list.item.name %></td>
-        <td><%= party_request_list.party.name %></td>
-        <td><%= party_request_list.item.amount %></td>
-        <td><%= party_request_list.item.units %></td>
-        <td><%= party_request_list.item.serving_size %></td>
+        <td><%= party_request_list.item.amount %> <%= party_request_list.item.units %></td>
+        <td><%= party_request_list.item.serving_size.to_i %></td>
         <td><%= number_to_currency(party_request_list.item.price) %></td>
         <td><%= party_request_list.quantity %></td>
-        <td><%= party_request_list.quantity.to_i*party_request_list.item.amount.to_i %></td>
-        <td><%= number_to_currency("10") %></td>
+        <td><%= party_request_list.quantity.to_i*party_request_list.item.serving_size.to_i %></td>
+        <td><%= number_to_currency(party_request_list.item.price*party_request_list.quantity.to_i) %></td>
         <td><%= party_request_list.delegation_status %></td>
         <td><%= party_request_list.user_id %></td>
         <td><%= party_request_list.notes %></td>

@@ -2,8 +2,7 @@ class ShoppingListsController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all
     @party_request_lists = @shopping_lists.where(:party_id => params[:id])
-    #@total_servings = @shopping_lists.quantity.to_i
-    #@total_cost = (@party_request_lists.item.price/@party_request_lists.item.serving_size)*(@total_servings).to_f
+    #@appetizer_sum = ShoppingList.where(:category => "Appetizer").sum(:quantity)
   end
 
   def show
