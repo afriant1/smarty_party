@@ -106,25 +106,34 @@
       </div>
 
       <!-- Label and input for appetizer_course -->
+
+
+
       <div class="form-group">
       <label for="courses" class="control-label">Courses</label>
       </div>
-        <div class="input-group">
 
-        <input type="hidden" id="appetizer_course" name="appetizer_course" class="form-inline"  value="0">
-        <input type="checkbox" id="appetizer_course" name="appetizer_course" class="form-inline"  checked value="1" unchecked = "0">Appetizer
+    <input type="hidden" id="appetizer_course" name="appetizer_course" value ="0">
+    <input type="hidden" id="entree_course" name="entree_course" value ="0">
+    <input type="hidden" id="dessert_course" name="dessert_course" value ="0">
+    <input type="hidden" id="alcohol_course" name="alcohol_course" value ="0">
 
-        <input type="hidden" id="entree_course" name="entree_course" class="form-inline"  value="0">
-        <input type="checkbox" id="entree_course" name="entree_course" class="form-inline"  checked value="1" unchecked = "0">Entree
 
-        <input type="hidden" id="dessert_course" name="dessert_course" class="form-inline" value="0">
-        <input type="checkbox" id="dessert_course" name="dessert_course" class="form-inline"  checked value="1" unchecked = "0">Dessert
-
-        <input type="hidden" id="alcohol_course" name="alcohol_course" class="form-inline" value="0">
-        <input type="checkbox" id="alcohol_course" name="alcohol_course" class="form-inline"  checked value="1" unchecked = "0">Alcohol
-        </div>
-      </div>
-
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="appetizer_course" name="appetizer_course" class="form-inline"  value ="1"> Appetizer
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="entree_course" name="entree_course" class="form-inline"  value ="1"> Entree
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="dessert_course" name="dessert_course" class="form-inline"  value ="1"> Dessert
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="alcohol_course" name="alcohol_course" class="form-inline"  value ="1"> Alcohol
+    </label>
+  </div>
+  </div>
       <button class="btn btn-success">
         Create Party
       </button>
@@ -132,4 +141,4 @@
       <a href="/parties">Cancel</a>
     </form>
   </div>
-</div>
+

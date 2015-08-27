@@ -4,7 +4,8 @@
 
 <div class="page-header">
   <h3>Party Profile
-  <a href="/parties/:id/shopping_list" class="btn btn-lg btn-success">Shopping List</a>
+  <a href="/parties/<%= @party.id %>/shopping_list" class="btn btn-success" rel="nofollow">Shopping List</a>
+  <a href="/parties/<%= @party.id %>/edit" class="btn btn-warning">Edit</a>
   </h3>
 </div>
 

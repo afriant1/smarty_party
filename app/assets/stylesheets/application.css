@@ -15,3 +15,6 @@
  */
 
 *= require bootstrap-datetimepicker
+.custom {
+    width: 78px !important;
+}

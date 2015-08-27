@@ -17,3 +17,4 @@ class ShoppingList < ActiveRecord::Base
     self.quantity * self.item.price
   end
 end
+
