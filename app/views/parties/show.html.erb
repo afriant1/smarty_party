@@ -213,8 +213,17 @@
         <%= total.to_i - @flatware_calc%> drinks
       </dd>
 
-</dl>
-</div>
+      <dt>Budget</dt>
+      <dd>
+        <% total = 0 %>
+        <% @all_items.each do |all_item| %>
+          <% total = total + all_item.costs %>
+        <% end %>
+
+        <%= number_to_currency(total.to_i-@party.budget) %></dd>
+      </dd>
+    </dl>
+  </div>
 </div>
 
     <div class="btn-group btn-group-justified">
