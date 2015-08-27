@@ -2,11 +2,11 @@ class ShoppingListsController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all
     @party_request_lists = @shopping_lists.where(:party_id => params[:id])
-    #@appetizer_sum = ShoppingList.where(:category => "Appetizer").sum(:quantity)
   end
 
   def show
     @shopping_list = ShoppingList.find(params[:id])
+    @appetizer_sum = @shopping_list.items.where(:category => "Appetizer").sum(:quantity)
   end
 
   def new

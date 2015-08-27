@@ -5,4 +5,5 @@ class Item < ActiveRecord::Base
   validates :price, :presence => true, :numericality => true
 
   has_many :shopping_lists
+  has_many :parties, :through => :shopping_lists
 end

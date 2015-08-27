@@ -80,29 +80,71 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Appetizers</dt>
-      <dd>2 pieces</dd>
+      <dd>
+        <% total = 0 %>
+        <% @appetizer_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i %> pieces
+      </dd>
 
       <dt>Entrees</dt>
-      <dd>2 meals</dd>
+      <dd>
+        <% total = 0 %>
+        <% @entree_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i %> meals</dd>
 
       <dt>Desserts</dt>
-      <dd>2 pieces</dd>
+      <dd>
+      <% total = 0 %>
+        <% @dessert_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i %> pieces</dd>
 
       <dt>Non-Alcohol</dt>
-      <dd>2 drinks</dd>
+      <dd>
+      <% total = 0 %>
+        <% @nonalcohol_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i %> drinks</dd>
 
       <dt>Alcohol</dt>
-      <dd>2 drinks</dd>
+      <dd>
+      <% total = 0 %>
+        <% @alcohol_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i %> drinks</dd>
 
       <dt>Flatware</dt>
-      <dd>2 sets</dd>
+      <dd>
+      <% total = 0 %>
+        <% @flatware_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
 
-      <dt>Budget</dt>
-      <dd>400</dd>
+        <%= total.to_i %> sets</dd>
+
+      <dt>Total Cost</dt>
+      <dd>
+      <% total = 0 %>
+        <% @all_items.each do |all_item| %>
+          <% total = total + all_item.costs %>
+        <% end %>
+
+        <%= number_to_currency(total.to_i) %></dd>
     </dl>
   </div>
  </div>
-
 
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">

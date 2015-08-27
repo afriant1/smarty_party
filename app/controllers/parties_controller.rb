@@ -13,6 +13,13 @@ class PartiesController < ApplicationController
     @nonalcohol_calc = (@guests).to_i
     @flatware_calc = @guests*((@party.appetizer_course.to_i*0.5)+@party.entree_course.to_i+(@party.dessert_course.to_i*0.5)).to_i
 
+    @all_items = @party.shopping_lists.all
+    @appetizer_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Appetizer'")
+    @entree_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Entree'")
+    @dessert_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Dessert'")
+    @alcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Alcohol'")
+    @nonalcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Non-alcohol'")
+    @flatware_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Flatware'")
   end
 
   def new

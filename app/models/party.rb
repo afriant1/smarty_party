@@ -8,5 +8,6 @@ class Party < ActiveRecord::Base
 
   belongs_to :user
   has_many :guests
-  has_many :items
+  has_many :shopping_lists
+  has_many :items, :through => :shopping_lists
 end
