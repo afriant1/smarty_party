@@ -54,6 +54,11 @@ class PartiesController < ApplicationController
     @party.alcohol_course = params[:alcohol_course]
 
     if @party.save
+      #@guest = Guest.new
+      #@guest.user_id = current_user.id # get a current_user
+      #@guest.party_id = @party.id
+      #@guest.host = true
+      #@guest.save
       redirect_to "/parties", :notice => "Party created successfully."
     else
       render 'new'

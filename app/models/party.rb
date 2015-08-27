@@ -6,8 +6,9 @@ class Party < ActiveRecord::Base
   validates :drink_level, :presence => true, :numericality => true
   validates :budget, :presence => true, :numericality => true
 
-  belongs_to :user
+  #belongs_to :user
   has_many :guests
+  has_many :users, :through => :guests
   has_many :shopping_lists
   has_many :items, :through => :shopping_lists
 
