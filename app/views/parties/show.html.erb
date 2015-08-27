@@ -146,6 +146,77 @@
   </div>
  </div>
 
+<div class="page-header">
+  <h4>Comparison</h4>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Appetizers</dt>
+      <dd>
+        <% total = 0 %>
+        <% @appetizer_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @appetizer_calc%> pieces
+      </dd>
+
+      <dt>Entrees</dt>
+      <dd>
+        <% total = 0 %>
+        <% @entree_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @entree_calc%> meals
+      </dd>
+
+      <dt>Desserts</dt>
+      <dd>
+        <% total = 0 %>
+        <% @dessert_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @dessert_calc%> pieces
+      </dd>
+
+      <dt>Non-Alcohol</dt>
+      <dd>
+        <% total = 0 %>
+        <% @nonalcohol_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @nonalcohol_calc%> drinks
+      </dd>
+
+      <dt>Alcohol</dt>
+      <dd>
+        <% total = 0 %>
+        <% @alcohol_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @alcohol_calc%> drinks
+      </dd>
+
+      <dt>Flatware</dt>
+      <dd>
+        <% total = 0 %>
+        <% @flatware_shopping_items.each do |shopping_item| %>
+          <% total = total + shopping_item.serves %>
+        <% end %>
+
+        <%= total.to_i - @flatware_calc%> drinks
+      </dd>
+
+</dl>
+</div>
+</div>
+
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">
         Back
