@@ -24,7 +24,7 @@
           Name
         </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @item.name %>">
+        <input type="text" id="name" name="name" placeholder="Descriptive item name (e.g. Large Delivery Pizza, Bruschetta (homemade), Quarter Sheet Cake (store-bought), etc.)" class="form-control" value="<%= @item.name %>">
       </div>
 
       <!-- Label and input for category -->
@@ -33,16 +33,12 @@
           Category
         </label>
 
-        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>">
+        <input type="text" id="category" name="category" placeholder="Category (e.g. Appetizer, Entree, Dessert, Non-Alcohol, Other, etc)" class="form-control" value="<%= @item.category %>">
       </div>
 
       <!-- Label and input for amount -->
       <div class="form-group">
-        <label for="amount" class="control-label">
-          Amount
-        </label>
-
-        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @item.amount %>">
+        <input type="hidden" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @item.amount %>">
       </div>
 
       <!-- Label and input for units -->
@@ -51,7 +47,7 @@
           Purchase Unit
         </label>
 
-        <input type="text" id="units" name="units" placeholder="Purchase Unit" class="form-control" value="<%= @item.units %>">
+        <input type="text" id="units" name="units" placeholder="Single purchase unit or dish (e.g. bag of chips, tray of vegetables, etc)" class="form-control" value="<%= @item.units %>">
       </div>
 
       <!-- Label and input for serving_size -->
@@ -60,7 +56,7 @@
           Servings
         </label>
 
-        <input type="text" id="serving_size" name="serving_size" placeholder="Serving per unit" class="form-control" value="<%= @item.serving_size %>">
+        <input type="text" id="serving_size" name="serving_size" placeholder="Standard servings per dish or unit" class="form-control" value="<%= @item.serving_size %>">
       </div>
 
       <!-- Label and input for price -->
@@ -69,7 +65,7 @@
           Price
         </label>
 
-        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @item.price %>">
+        <input type="text" id="price" name="price" placeholder="Estimated total cost to buy unit or all items in the complete dish" class="form-control" value="<%= @item.price %>">
       </div>
 
       <button class="btn btn-success">

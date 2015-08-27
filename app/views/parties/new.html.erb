@@ -48,7 +48,7 @@
         <label for="duration" class="control-label">
           Duration
         </label>
-        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @party.duration %>">
+        <input type="text" id="duration" name="duration" placeholder="Duration in hours" class="form-control" value="<%= @party.duration %>">
       </div>
 
       <!-- Label and input for male_count -->
@@ -56,16 +56,16 @@
       <table>
       <tr>
         <td><label for="male_count" class="control-label">
-          Male count
+          Male Guests
         </label></td>
         <td><label for="female_count" class="control-label">
-          Female count
+          Female Guests
         </label></td>
       </tr>
       <td>
-        <input type="text" id="male_count" name="male_count" placeholder="Male count" class="form-control" value="<%= @party.male_count %>"></td>
+        <input type="text" id="male_count" name="male_count" placeholder="Male guests" class="form-control" value="<%= @party.male_count %>"></td>
       <td>
-        <input type="text" id="female_count" name="female_count" placeholder="Female count" class="form-control" value="<%= @party.female_count %>"></td>
+        <input type="text" id="female_count" name="female_count" placeholder="Female guests" class="form-control" value="<%= @party.female_count %>"></td>
       </table>
     </div>
 
@@ -100,7 +100,7 @@
         </label>
         <div class="input-group">
           <span class="input-group-addon">$</span>
-            <input type="text" id="budget" name="budget" placeholder="Budget" class="form-control" value="<%= @party.budget %>">
+            <input type="text" id="budget" name="budget" placeholder="Budget for all items purchase by host" class="form-control" value="<%= @party.budget %>">
           <span class="input-group-addon">.00</span>
         </div>
       </div>
