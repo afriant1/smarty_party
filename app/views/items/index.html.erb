@@ -31,7 +31,6 @@
         <td><%= number_to_currency(appetizer.price) %></td>
         <td><%= appetizer.updated_at.strftime('%B %e, %Y') %></td>
         <td>
-          <a href="/items/<%= appetizer.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= appetizer.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_item/<%= appetizer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <form action="/create_shopping_list" method="post">

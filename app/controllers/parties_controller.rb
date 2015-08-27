@@ -6,20 +6,32 @@ class PartiesController < ApplicationController
   def show
     @party = Party.find(params[:id])
     @guests = (@party.male_count + @party.female_count).to_i
-    @appetizer_calc = (@party.appetizer_course.to_i*1.25*@party.food_level*@guests).to_i
-    @entree_calc = @party.entree_course.to_i*(@guests+((((@party.food_level-1).to_f)*0.15)*@party.male_count)+((((@party.food_level-1).to_f)*0.1)*@party.female_count)).to_i
-    @dessert_calc = (@party.dessert_course.to_i*1.25*@party.food_level*@guests).to_i
+
+    @appetizer_calc = @party.appetizer_pieces
+    @entree_calc = @party.entree_meals
+    @dessert_calc = @party.dessert_pieces
     @alcohol_calc = @party.alcohol_drinks
-    @nonalcohol_calc = (@guests).to_i
-    @flatware_calc = @guests*((@party.appetizer_course.to_i*0.5)+@party.entree_course.to_i+(@party.dessert_course.to_i*0.5)).to_i
+    @nonalcohol_calc = @party.nonalcohol_drinks
+    @flatware_calc = @party.flatware_sets
+
+#    @appetizer_calc = (@party.appetizer_course.to_i*1.25*@party.food_level*@guests).to_i
+#    @entree_calc = @party.entree_course.to_i*(@guests+((((@party.food_level-1).to_f)*0.15)*@party.male_count)+((((@party.food_level-1).to_f)*0.1)*@party.female_count)).to_i
+#    @dessert_calc = (@party.dessert_course.to_i*1.25*@party.food_level*@guests).to_i
+#    @flatware_calc = @guests*((@party.appetizer_course.to_i*0.5)+@party.entree_course.to_i+(@party.dessert_course.to_i*0.5)).to_i
 
     @all_items = @party.shopping_lists.all
-    @appetizer_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Appetizer'")
-    @entree_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Entree'")
-    @dessert_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Dessert'")
+    @appetizer_shopping_items = @party.shopping_items('Appetizer')
+    @entree_shopping_items = @party.shopping_items('Entree')
+    @dessert_shopping_items = @party.shopping_items('Dessert')
+    @nonalcohol_shopping_items = @party.shopping_items('Non-alcohol')
     @alcohol_shopping_items = @party.shopping_items('Alcohol')
-    @nonalcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Non-alcohol'")
-    @flatware_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Flatware'")
+    @flatware_shopping_items = @party.shopping_items('Flatware')
+
+#    @appetizer_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Appetizer'")
+#    @entree_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Entree'")
+#    @dessert_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Dessert'")
+#    @nonalcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Non-alcohol'")
+#    @flatware_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Flatware'")
   end
 
   def new

@@ -81,67 +81,32 @@
     <dl class="dl-horizontal">
       <dt>Appetizers</dt>
       <dd>
-        <% total = 0 %>
-        <% @appetizer_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> pieces
+        <%= @party.total_servings('Appetizer')%> pieces
       </dd>
 
       <dt>Entrees</dt>
       <dd>
-        <% total = 0 %>
-        <% @entree_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> meals</dd>
+        <%= @party.total_servings('Entree')%> meals</dd>
 
       <dt>Desserts</dt>
       <dd>
-      <% total = 0 %>
-        <% @dessert_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> pieces</dd>
+        <%= @party.total_servings('Dessert')%> pieces</dd>
 
       <dt>Non-Alcohol</dt>
       <dd>
-      <% total = 0 %>
-        <% @nonalcohol_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> drinks</dd>
+      <%= @party.total_servings('Non-Alcohol')%> drinks</dd>
 
       <dt>Alcohol</dt>
       <dd>
-      <% total = 0 %>
-        <% @alcohol_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> drinks</dd>
+      <%= @party.total_servings('Alcohol')%> drinks</dd>
 
       <dt>Flatware</dt>
       <dd>
-      <% total = 0 %>
-        <% @flatware_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i %> sets</dd>
+      <%= @party.total_servings('Flatware')%> sets</dd>
 
       <dt>Total Cost</dt>
       <dd>
-      <% total = 0 %>
-        <% @all_items.each do |all_item| %>
-          <% total = total + all_item.costs %>
-        <% end %>
-
-        <%= number_to_currency(total.to_i) %></dd>
+      <%= number_to_currency(@party.total_cost)%></dd>
     </dl>
   </div>
  </div>
@@ -155,85 +120,42 @@
     <dl class="dl-horizontal">
       <dt>Appetizers</dt>
       <dd>
-        <% total = 0 %>
-        <% @appetizer_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i - @appetizer_calc%> pieces
+        <%= @party.comparison('Appetizer', @appetizer_calc)%> drinks (<%= @party.comparison_sign('Appetizer', @appetizer_calc) %>)
       </dd>
 
       <dt>Entrees</dt>
       <dd>
-        <% total = 0 %>
-        <% @entree_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i - @entree_calc%> meals
+        <%= @party.comparison('Entree', @entree_calc) %> meals (<%= @party.comparison_sign('Entree', @entree_calc) %>)
       </dd>
 
       <dt>Desserts</dt>
       <dd>
-        <% total = 0 %>
-        <% @dessert_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i - @dessert_calc%> pieces
+        <%= @party.comparison('Dessert', @dessert_calc) %> pieces (<%= @party.comparison_sign('Dessert', @dessert_calc) %>)
       </dd>
 
       <dt>Non-Alcohol</dt>
       <dd>
-        <% total = 0 %>
-        <% @nonalcohol_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i - @nonalcohol_calc%> drinks
+        <%= @party.comparison('Non-alcohol', @nonalcohol_calc) %> drinks (<%= @party.comparison_sign('Non-alcohol', @nonalcohol_calc) %>)
       </dd>
 
       <dt>Alcohol</dt>
       <dd>
-        <%# total = 0 %>
-        <%# @alcohol_shopping_items.each do |shopping_item| %>
-          <%# total = total + shopping_item.serves %>
-        <%# end %>
-        <%# total = @party.total_alcohol_servings %>
-
-        <%#= total.to_i - @alcohol_calc%>
         <%= @party.comparison('Alcohol', @alcohol_calc) %> drinks (<%= @party.comparison_sign('Alcohol', @alcohol_calc) %>)
       </dd>
 
       <dt>Flatware</dt>
       <dd>
-        <% total = 0 %>
-        <% @flatware_shopping_items.each do |shopping_item| %>
-          <% total = total + shopping_item.serves %>
-        <% end %>
-
-        <%= total.to_i - @flatware_calc%> drinks
+        <%= @party.comparison('Flatware', @flatware_calc) %> sets (<%= @party.comparison_sign('Flatware', @flatware_calc) %>)
       </dd>
 
       <dt>Budget</dt>
       <dd>
-        <% total = 0 %>
-        <% @all_items.each do |all_item| %>
-          <% total = total + all_item.costs %>
-        <% end %>
-
-        <%= number_to_currency(total.to_i-@party.budget) %></dd>
+        <%= number_to_currency(@party.total_cost - @party.budget) %> (<%= @party.comparison_sign(@party.total_cost, @party.budget) %>)
+      </dd>
       </dd>
     </dl>
   </div>
 </div>
-
-<div class="page-header">
-  <h4>Comparison labels</h4>
-</div>
-
-
-
 
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">
