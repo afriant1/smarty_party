@@ -2,6 +2,7 @@ class ShoppingListsController < ApplicationController
   def index
     @shopping_lists = ShoppingList.all
     @party_request_lists = @shopping_lists.where(:party_id => params[:id])
+    @party = Party.find(params[:id])
   end
 
   def show

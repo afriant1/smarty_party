@@ -9,7 +9,7 @@ class PartiesController < ApplicationController
     @appetizer_calc = (@party.appetizer_course.to_i*1.25*@party.food_level*@guests).to_i
     @entree_calc = @party.entree_course.to_i*(@guests+((((@party.food_level-1).to_f)*0.15)*@party.male_count)+((((@party.food_level-1).to_f)*0.1)*@party.female_count)).to_i
     @dessert_calc = (@party.dessert_course.to_i*1.25*@party.food_level*@guests).to_i
-    @alcohol_calc = @party.alcohol_course.to_i*((@party.male_count*(@party.drink_level.to_f+0.75))+(@party.female_count*(@party.drink_level.to_f+0.5))).to_i
+    @alcohol_calc = @party.alcohol_drinks
     @nonalcohol_calc = (@guests).to_i
     @flatware_calc = @guests*((@party.appetizer_course.to_i*0.5)+@party.entree_course.to_i+(@party.dessert_course.to_i*0.5)).to_i
 
@@ -17,7 +17,7 @@ class PartiesController < ApplicationController
     @appetizer_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Appetizer'")
     @entree_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Entree'")
     @dessert_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Dessert'")
-    @alcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Alcohol'")
+    @alcohol_shopping_items = @party.shopping_items('Alcohol')
     @nonalcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Non-alcohol'")
     @flatware_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Flatware'")
   end
