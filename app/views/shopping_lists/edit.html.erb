@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Shopping List #<%= @shopping_list.id %></h3>
+  <h3>Edit <%= @shopping_list.item.name %></h3>
 </div>
 
 <div class="row">
@@ -20,19 +20,11 @@
 
       <!-- Label and input for item_id -->
       <div class="form-group">
-        <label for="item_id" class="control-label">
-          Item
-        </label>
-
-        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @shopping_list.item_id %>">
+        <input type="hidden" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @shopping_list.item_id %>">
       </div>
 
       <!-- Label and input for party_id -->
       <div class="form-group">
-        <label for="party_id" class="control-label">
-          Party
-        </label>
-
         <input type="text" id="party_id" name="party_id" placeholder="Party" class="form-control" value="<%= @shopping_list.party_id %>">
       </div>
 
@@ -48,10 +40,10 @@
       <!-- Label and input for delegation_status -->
       <div class="form-group">
         <label for="delegation_status" class="control-label">
-          Delegation status
+          Delegation
         </label>
 
-        <input type="text" id="delegation_status" name="delegation_status" placeholder="Delegation status" class="form-control" value="<%= @shopping_list.delegation_status %>">
+        <%= select_tag :delegation_status, options_for_select([["Host", "host"], ["Unclaimed", "unclaimed"], ["Guest", "guest"], ["In possession", "in possession"]], @shopping_list.delegation_status), :class => "form-control" %>
       </div>
 
       <!-- Label and input for user_id -->

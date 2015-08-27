@@ -7,8 +7,6 @@ class ShoppingList < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
 
-  # has_many :items
-
   def serves
     self.quantity * self.item.serving_size
   end
