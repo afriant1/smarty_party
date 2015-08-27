@@ -59,7 +59,7 @@ class Party < ActiveRecord::Base
   end
 
   def total_cost
-    shopping_lists.map(&:costs).sum
+    shopping_lists.where(:delegation_status => 'Host').map(&:costs).sum
   end
 
 end

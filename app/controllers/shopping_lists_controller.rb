@@ -12,6 +12,7 @@ class ShoppingListsController < ApplicationController
 
   def new
     @shopping_list = ShoppingList.new
+    @party = Party.find(params[:id])
   end
 
   def create

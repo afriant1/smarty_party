@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
   <%= @party.name %> Shopping list
-    <a href="/parties/:id/shopping_lists/new" class="btn btn btn-success">Add New Item</a>
+    <a href="/parties/<%= @party.id %>/shopping_lists/new" class="btn btn btn-success">Add New Item</a>
     <a href="/parties/<%= @party.id %>" class="btn btn-primary">Party Profile</a>
 
   </h1>
@@ -20,7 +20,7 @@
         <th>Quantity</th>
         <th>Total Servings</th>
         <th>Total Cost</th>
-        <th>Delegation status</th>
+        <th>Delegation</th>
         <th>Owner</th>
         <th>Notes</th>
         <th>Actions</th>

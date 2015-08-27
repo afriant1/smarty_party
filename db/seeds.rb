@@ -21,10 +21,11 @@
 # ]
 
 #  guest_hashes.each do |guest_hash|
-#   name = Name.find_by({ :name => guest_hash[:name] })
+#   name = Guest.Name.find_by({ :name => guest_hash[:name] })
 #   email = Email.find_by({ :email => guest_hash[:email] })
 #   gender = Gender.find_by({ :name => guest_hash[:gender] })
-#   guest = Guest.new
+#
+ guest = Guest.new
 #   guest.name = guest_hash[:name]
 #   guest.email = guest_hash[:email]
 #   guest.gender = guest_hash[:gender]
