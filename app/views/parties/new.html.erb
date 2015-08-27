@@ -109,30 +109,20 @@
       <div class="form-group">
       <label for="courses" class="control-label">Courses</label>
       </div>
-      <div class = "form-inline">
-        <label for="appetizer_course">
-          Appetizer course
-        </label>
+        <div class="input-group">
 
-        <input type="checkbox" id="appetizer_course" name="appetizer_course" placeholder="Appetizer" class="form-inline" value="<%= @party.appetizer_course %>">
+        <input type="hidden" id="appetizer_course" name="appetizer_course" class="form-inline"  value="0">
+        <input type="checkbox" id="appetizer_course" name="appetizer_course" class="form-inline"  checked value="1" unchecked = "0">Appetizer
 
-        <label for="entree_course" class="control-label">
-          Entree course
-        </label>
+        <input type="hidden" id="entree_course" name="entree_course" class="form-inline"  value="0">
+        <input type="checkbox" id="entree_course" name="entree_course" class="form-inline"  checked value="1" unchecked = "0">Entree
 
-        <input type="checkbox" id="entree_course" name="entree_course" placeholder="Entree" class="form-inline" value="<%= @party.entree_course %>">
+        <input type="hidden" id="dessert_course" name="dessert_course" class="form-inline" value="0">
+        <input type="checkbox" id="dessert_course" name="dessert_course" class="form-inline"  checked value="1" unchecked = "0">Dessert
 
-        <label for="dessert_course" class="control-label">
-          Dessert course
-        </label>
-
-        <input type="checkbox" id="dessert_course" name="dessert_course" placeholder="Dessert" class="form-inline" value="<%= @party.dessert_course %>">
-
-        <label for="alcohol_course" class="control-label">
-          Alcohol course
-        </label>
-
-        <input type="checkbox" id="alcohol_course" name="alcohol_course" placeholder="Alcohol" class="form-inline" value="<%= @party.alcohol_course %>">
+        <input type="hidden" id="alcohol_course" name="alcohol_course" class="form-inline" value="0">
+        <input type="checkbox" id="alcohol_course" name="alcohol_course" class="form-inline"  checked value="1" unchecked = "0">Alcohol
+        </div>
       </div>
 
       <button class="btn btn-success">
