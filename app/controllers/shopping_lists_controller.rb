@@ -19,7 +19,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list = ShoppingList.new
     @shopping_list.item_id = params[:item_id]
     @shopping_list.party_id = params[:party_id]
-    @shopping_list.quantity = params[:quantity]
+    @shopping_list.quantity = params[:quantity] || 1
     @shopping_list.delegation_status = params[:delegation_status]
     @shopping_list.owner = params[:owner]
     @shopping_list.notes = params[:notes]

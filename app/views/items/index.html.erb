@@ -33,15 +33,13 @@
         <td><%= appetizer.serving_size.to_i %></td>
         <td><%= number_to_currency(appetizer.price) %></td>
         <td><%= appetizer.updated_at.strftime('%B %e, %Y') %></td>
-        <td>
         <td><span>
           <a class="btn btn-warning" href="/items/<%= appetizer.id %>/edit"><i class="fa fa-edit"></i></a>
           <a class="btn btn-danger" rel="nofollow" data-method="delete" href="/delete_item/<%= appetizer.id %>"><i class="fa fa-trash-o"></i></a>
           <form action="/create_shopping_list" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= appetizer.id %>">
-            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-             <button class="btn btn-success"> Add to Party</button>
+            <%= select_tag :party_id, options_from_collection_for_select(@parties, :id, :name), :prompt => 'Add to Party', :class => 'form-control', :onchange => "this.form.submit()" %>
           </form>
         </td></span>
       </tr>
@@ -81,8 +79,7 @@
           <form action="/create_shopping_list" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= entree.id %>">
-            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-             <button class="btn btn-success"> Add to Party </button>
+            <%= select_tag :party_id, options_from_collection_for_select(@parties, :id, :name), :prompt => 'Add to Party', :class => 'form-control', :onchange => "this.form.submit()" %>
           </form>
         </td></span>
       </tr>
@@ -122,8 +119,7 @@
           <form action="/create_shopping_list" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= dessert.id %>">
-            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-             <button class="btn btn-success"> Add to Party</button>
+            <%= select_tag :party_id, options_from_collection_for_select(@parties, :id, :name), :prompt => 'Add to Party', :class => 'form-control', :onchange => "this.form.submit()" %>
           </form>
         </td></span>
       </tr>
@@ -163,8 +159,7 @@
           <form action="/create_shopping_list" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= beverage.id %>">
-            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-             <button class="btn btn-success"> Add to Party</button>
+            <%= select_tag :party_id, options_from_collection_for_select(@parties, :id, :name), :prompt => 'Add to Party', :class => 'form-control', :onchange => "this.form.submit()" %>
           </form>
         </td></span>
       </tr>
@@ -204,8 +199,10 @@
           <form action="/create_shopping_list" method="post">
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
             <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= other.id %>">
-            <input type="hidden" id="party_id" name="party_id" class="form-control" value="1">
-             <button class="btn btn-success"> Add to Party</button>
+          <form action="/create_shopping_list" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <input type="hidden" id="item_id" name="item_id" class="form-control" value="<%= other.id %>">
+            <%= select_tag :party_id, options_from_collection_for_select(@parties, :id, :name), :prompt => 'Add to Party', :class => 'form-control', :onchange => "this.form.submit()" %>
           </form>
         </td></span>
       </tr>

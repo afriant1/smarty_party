@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
     @desserts = Item.where(category: ["Dessert"])
     @beverages = Item.where(category: ["Alcohol", "Non-Alcohol"])
     @other = Item.where(category: ["Flatware", "Other"])
-
+    # a host should only be able to add items to their parties
+    @parties = current_user.parties
   end
 
   def show

@@ -103,17 +103,17 @@
     <input type="hidden" id="alcohol_course" name="alcohol_course" value ="0">
 
   <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-      <input type="checkbox" checked autocomplete="off" id="appetizer_course" name="appetizer_course" class="form-inline"  value ="1"> Appetizer
+    <label class="btn btn-primary <%= 'active' if @party.appetizer_course == '1'%>">
+      <input type="checkbox" checked autocomplete="off" id="appetizer_course" name="appetizer_course" class="form-inline"  value ="<%=@party.appetizer_course%>"> Appetizer
     </label>
-    <label class="btn btn-primary active">
-      <input type="checkbox" checked autocomplete="off" id="entree_course" name="entree_course" class="form-inline"  value = "1"> Entree
+    <label class="btn btn-primary <%= 'active' if @party.entree_course == '1'%>"">
+      <input type="checkbox" checked autocomplete="off" id="entree_course" name="entree_course" class="form-inline"  value = "<%=@party.entree_course%>"> Entree
     </label>
-    <label class="btn btn-primary active">
-      <input type="checkbox" checked autocomplete="off" id="dessert_course" name="dessert_course" class="form-inline"  value ="1"> Dessert
+    <label class="btn btn-primary <%= 'active' if @party.dessert_course == '1'%>"">
+      <input type="checkbox" checked autocomplete="off" id="dessert_course" name="dessert_course" class="form-inline"  value ="<%=@party.dessert_course%>"> Dessert
     </label>
-    <label class="btn btn-primary active">
-      <input type="checkbox" checked autocomplete="off" id="alcohol_course" name="alcohol_course" class="form-inline"  value ="1"> Alcohol
+    <label class="btn btn-primary <%= 'active' if @party.alcohol_course == '1'%>"">
+      <input type="checkbox" checked autocomplete="off" id="alcohol_course" name="alcohol_course" class="form-inline"  value ="<%=@party.alcohol_course%>"> Alcohol
     </label>
   </div>
 <p></p>
