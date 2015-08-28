@@ -1,19 +1,15 @@
 <div class="page-header">
-  <h1><%= @party.name %></h1>
-</div>
-
-<div class="page-header">
-  <h3>Party Profile
+  <h1><%= @party.name %> Profile
   <a href="/parties/<%= @party.id %>/shopping_list" class="btn btn-success" rel="nofollow">Shopping List</a>
   <a href="/parties/<%= @party.id %>/edit" class="btn btn-warning">Edit</a>
-  </h3>
+  </h1>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Date</dt>
-      <dd><%= @party.date %></dd>
+      <dd><%= @party.date.strftime('%B %e, %Y')%></dd>
 
       <dt>Duration</dt>
       <dd><%= @party.duration %> hours</dd>
@@ -45,120 +41,69 @@
       <dt>Alcohol</dt>
       <dd><%= @party.alcohol_course %></dd>
 
-    </dl>
 
-<div class="page-header">
-  <h3>Food & Drink Needs</h3>
+<div class="row-header">
+<h3>Party Needs vs Shopping List</h3>
+<h4>See how your shopping list compares to our food and beverage estimates for your party</h4>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>Appetizers</dt>
-      <dd><%= @appetizer_calc%> pieces</dd>
+<table class="table table-striped">
+  <tr>
+    <th>Course</th>
+    <th>Suggested quantities</th>
+    <th>Shopping list totals</th>
+    <th>Variance</th>
+  </tr>
 
-      <dt>Entrees</dt>
-      <dd><%=@entree_calc%> meals</dd>
+  <tr>
+    <td>Appetizers</td>
+    <td><%= @appetizer_calc%> pieces</td>
+    <td><%= @party.total_servings('Appetizer')%> pieces</td>
+    <td><%= @party.comparison('Appetizer', @appetizer_calc)%> drinks (<%= @party.comparison_sign('Appetizer', @appetizer_calc) %>)</td>
+  <tr>
 
-      <dt>Desserts</dt>
-      <dd><%= @dessert_calc%> pieces</dd>
+  <tr>
+    <td>Entrees</td>
+    <td><%= @entree_calc%> pieces</td>
+    <td><%= @party.total_servings('Entree')%> pieces</td>
+    <td><%= @party.comparison('Entree', @entree_calc)%> drinks (<%= @party.comparison_sign('Entree', @entree_calc) %>)</td>
+  <tr>
 
-      <dt>Non-Alcohol</dt>
-      <dd><%= @nonalcohol_calc%> drinks</dd>
+  <tr>
+    <td>Desserts</td>
+    <td><%= @dessert_calc%> pieces</td>
+    <td><%= @party.total_servings('Dessert')%> pieces</td>
+    <td><%= @party.comparison('Dessert', @dessert_calc)%> drinks (<%= @party.comparison_sign('Dessert', @dessert_calc) %>)</td>
+  <tr>
 
-      <dt>Alcohol</dt>
-      <dd><%= @alcohol_calc%> drinks</dd>
+  <tr>
+    <td>Non-Alcohol</td>
+    <td><%= @nonalcohol_calc%> pieces</td>
+    <td><%= @party.total_servings('Non-alcohol')%> pieces</td>
+    <td><%= @party.comparison('Non-alcohol', @nonalcohol_calc)%> drinks (<%= @party.comparison_sign('Non-alcohol', @nonalcohol_calc) %>)</td>
+  <tr>
 
-      <dt>Flatware</dt>
-      <dd><%= @flatware_calc%> sets</dd>
-    </dl>
-  </div>
- </div>
+  <tr>
+    <td>Alcohol</td>
+    <td><%= @alcohol_calc%> pieces</td>
+    <td><%= @party.total_servings('alcohol')%> pieces</td>
+    <td><%= @party.comparison('alcohol', @alcohol_calc)%> drinks (<%= @party.comparison_sign('alcohol', @alcohol_calc) %>)</td>
+  <tr>
 
-<div class="page-header">
-  <h3>Party Shopping List</h3>
-</div>
+  <tr>
+    <td>Flatware</td>
+    <td><%= @flatware_calc%> pieces</td>
+    <td><%= @party.total_servings('Flatware')%> pieces</td>
+    <td><%= @party.comparison('Flatware', @flatware_calc)%> drinks (<%= @party.comparison_sign('Flatware', @flatware_calc) %>)</td>
+  <tr>
 
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>Appetizers</dt>
-      <dd>
-        <%= @party.total_servings('Appetizer')%> pieces
-      </dd>
-
-      <dt>Entrees</dt>
-      <dd>
-        <%= @party.total_servings('Entree')%> meals</dd>
-
-      <dt>Desserts</dt>
-      <dd>
-        <%= @party.total_servings('Dessert')%> pieces</dd>
-
-      <dt>Non-Alcohol</dt>
-      <dd>
-      <%= @party.total_servings('Non-Alcohol')%> drinks</dd>
-
-      <dt>Alcohol</dt>
-      <dd>
-      <%= @party.total_servings('Alcohol')%> drinks</dd>
-
-      <dt>Flatware</dt>
-      <dd>
-      <%= @party.total_servings('Flatware')%> sets</dd>
-
-      <dt>Total Cost</dt>
-      <dd>
-      <%= number_to_currency(@party.total_cost)%></dd>
-    </dl>
-  </div>
- </div>
-
-<div class="page-header">
-  <h3>Comparison</h3>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>Appetizers</dt>
-      <dd>
-        <%= @party.comparison('Appetizer', @appetizer_calc)%> drinks (<%= @party.comparison_sign('Appetizer', @appetizer_calc) %>)
-      </dd>
-
-      <dt>Entrees</dt>
-      <dd>
-        <%= @party.comparison('Entree', @entree_calc) %> meals (<%= @party.comparison_sign('Entree', @entree_calc) %>)
-      </dd>
-
-      <dt>Desserts</dt>
-      <dd>
-        <%= @party.comparison('Dessert', @dessert_calc) %> pieces (<%= @party.comparison_sign('Dessert', @dessert_calc) %>)
-      </dd>
-
-      <dt>Non-Alcohol</dt>
-      <dd>
-        <%= @party.comparison('Non-alcohol', @nonalcohol_calc) %> drinks (<%= @party.comparison_sign('Non-alcohol', @nonalcohol_calc) %>)
-      </dd>
-
-      <dt>Alcohol</dt>
-      <dd>
-        <%= @party.comparison('Alcohol', @alcohol_calc) %> drinks (<%= @party.comparison_sign('Alcohol', @alcohol_calc) %>)
-      </dd>
-
-      <dt>Flatware</dt>
-      <dd>
-        <%= @party.comparison('Flatware', @flatware_calc) %> sets (<%= @party.comparison_sign('Flatware', @flatware_calc) %>)
-      </dd>
-
-      <dt>Budget</dt>
-      <dd>
-        <%= number_to_currency(@party.total_cost - @party.budget) %> (<%= @party.comparison_sign(@party.total_cost, @party.budget) %>)
-      </dd>
-      </dd>
-    </dl>
-  </div>
-</div>
+  <tr>
+    <td>Total v Budget</td>
+    <td><%= number_to_currency(@party.budget)%></td>
+    <td><%= number_to_currency(@party.total_cost)%></td>
+    <td><%= number_to_currency(@party.total_cost - @party.budget) %> (<%= @party.comparison_sign(@party.total_cost, @party.budget) %>)</td>
+  <tr>
+</table>
 
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">

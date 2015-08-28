@@ -33,6 +33,7 @@ class ShoppingListsController < ApplicationController
 
   def edit
     @shopping_list = ShoppingList.find(params[:id])
+    @party = @shopping_list.party_id
   end
 
   def update

@@ -27,7 +27,7 @@
       <% @parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
-        <td><%= party.date %></td>
+        <td><%= party.date.strftime('%B %e, %Y') %></td>
         <td><%= party.duration %> hours</td>
         <td><%= party.male_count %></td>
         <td><%= party.female_count %></td>

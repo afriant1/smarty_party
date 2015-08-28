@@ -1,6 +1,8 @@
 class PartiesController < ApplicationController
   def index
-    @parties = Party.all
+    #@parties = Party.all
+    #@parties = Party.where(:user_id => current_user.id)
+    @parties = current_user.parties
   end
 
   def show
@@ -14,11 +16,6 @@ class PartiesController < ApplicationController
     @nonalcohol_calc = @party.nonalcohol_drinks
     @flatware_calc = @party.flatware_sets
 
-#    @appetizer_calc = (@party.appetizer_course.to_i*1.25*@party.food_level*@guests).to_i
-#    @entree_calc = @party.entree_course.to_i*(@guests+((((@party.food_level-1).to_f)*0.15)*@party.male_count)+((((@party.food_level-1).to_f)*0.1)*@party.female_count)).to_i
-#    @dessert_calc = (@party.dessert_course.to_i*1.25*@party.food_level*@guests).to_i
-#    @flatware_calc = @guests*((@party.appetizer_course.to_i*0.5)+@party.entree_course.to_i+(@party.dessert_course.to_i*0.5)).to_i
-
     @all_items = @party.shopping_lists.all
     @appetizer_shopping_items = @party.shopping_items('Appetizer')
     @entree_shopping_items = @party.shopping_items('Entree')
@@ -26,13 +23,7 @@ class PartiesController < ApplicationController
     @nonalcohol_shopping_items = @party.shopping_items('Non-alcohol')
     @alcohol_shopping_items = @party.shopping_items('Alcohol')
     @flatware_shopping_items = @party.shopping_items('Flatware')
-
-#    @appetizer_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Appetizer'")
-#    @entree_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Entree'")
-#    @dessert_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Dessert'")
-#    @nonalcohol_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Non-alcohol'")
-#    @flatware_shopping_items = @party.shopping_lists.joins(:item).where("items.category = 'Flatware'")
-  end
+ end
 
   def new
     @party = Party.new
@@ -54,11 +45,11 @@ class PartiesController < ApplicationController
     @party.alcohol_course = params[:alcohol_course]
 
     if @party.save
-      #@guest = Guest.new
-      #@guest.user_id = current_user.id # get a current_user
-      #@guest.party_id = @party.id
-      #@guest.host = true
-      #@guest.save
+      @guest = Guest.new
+      @guest.user_id = current_user.id # get a current_user
+      @guest.party_id = @party.id
+      @guest.host = true
+      @guest.save
       redirect_to "/parties", :notice => "Party created successfully."
     else
       render 'new'

@@ -19,11 +19,11 @@
 
       <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.id</td>
-        <td><%= guest.party_id %></td>
-        <td><%= guest.itemId %></td>
-        <td><%= guest.party_id %></td>
-        <td><%= guest.item_id %></td>
+        <td><%= guest.party.firstname%> <%= guest.party.lastname</td>
+        <td><%= guest.party.email %></td>
+        <td><%= guest.party.gender %></td>
+        <td><%= guest.party.name %></td>
+        <td><%= guest.item.name %></td>
         <td>
           <a href="/guests/<%= guest.id %>" class="btn btn-primary">Show</a>
           <a href="/guests/<%= guest.id %>/edit" class="btn btn-warning">Edit</a>

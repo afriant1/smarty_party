@@ -74,7 +74,7 @@
         <label for="food_level" class="control-label">
           Food level
         </label>
-
+        <p>Estimate how hungry your guests will be throughout the event</p>
       <div id="slider">
         <input class = "bar" type="range" id="food_level" name="food_level" value="<%= @party.food_level %>" min = "0" max = "5" step = "1">
         <span class="highlight"></span>
@@ -86,6 +86,8 @@
         <label for="drink_level" class="control-label">
           Drink level
         </label>
+
+        <p>Estimate how boozy your guests will be throughout the event</p>
 
       <div id="slider">
         <input class = "bar" type="range" id="drink_level" name="drink_level" value="<%= @party.drink_level %>" min = "0" max = "5" step = "1">
@@ -105,14 +107,12 @@
         </div>
       </div>
 
-      <!-- Label and input for appetizer_course -->
-
-
+      <!-- Label and input for courses -->
 
       <div class="form-group">
       <label for="courses" class="control-label">Courses</label>
+      <p>Deselect which courses you do not plan to offer</p>
       </div>
-
     <input type="hidden" id="appetizer_course" name="appetizer_course" value ="0">
     <input type="hidden" id="entree_course" name="entree_course" value ="0">
     <input type="hidden" id="dessert_course" name="dessert_course" value ="0">
@@ -133,6 +133,8 @@
       <input type="checkbox" checked autocomplete="off" id="alcohol_course" name="alcohol_course" class="form-inline"  value ="1"> Alcohol
     </label>
   </div>
+
+  <p></p>
   </div>
       <button class="btn btn-success">
         Create Party

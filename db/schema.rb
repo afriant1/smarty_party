@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827191033) do
+ActiveRecord::Schema.define(version: 20150828041156) do
 
   create_table "guests", force: :cascade do |t|
     t.integer  "party_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150827191033) do
 
   create_table "parties", force: :cascade do |t|
     t.string   "name"
-    t.string   "date"
+    t.date     "date"
     t.integer  "duration"
     t.integer  "male_count"
     t.integer  "female_count"

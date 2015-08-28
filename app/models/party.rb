@@ -25,7 +25,7 @@ class Party < ActiveRecord::Base
   end
 
   def dessert_pieces
-    (dessert_course.to_i*1.25*food_level*(male_count+female_count)).to_i
+    (dessert_course.to_i*0.75*food_level*(male_count+female_count)).to_i
   end
 
   def nonalcohol_drinks
