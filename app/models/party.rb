@@ -63,5 +63,11 @@ class Party < ActiveRecord::Base
     shopping_lists.where(:delegation_status => 'Host').map(&:costs).sum
   end
 
+  # def course_label
+  #   if party.appetizer_course == 1
+  #     'X'
+  #   else
+  #     ''
+  #   end
+  # end
 end
-

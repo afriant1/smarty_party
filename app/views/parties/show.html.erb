@@ -14,96 +14,125 @@
       <dt>Duration</dt>
       <dd><%= @party.duration %> hours</dd>
 
-      <dt>Food level</dt>
-      <dd><%= @party.food_level %></dd>
-
-      <dt>Drink level</dt>
-      <dd><%= @party.drink_level %></dd>
-
-      <dt>Male count</dt>
-      <dd><%= @party.male_count %></dd>
-
-      <dt>Female count</dt>
-      <dd><%= @party.female_count %></dd>
-
       <dt>Budget</dt>
       <dd><%= number_to_currency(@party.budget) %></dd>
+    </dl>
+  </div>
 
-      <dt>Appetizer</dt>
-      <dd><%= @party.appetizer_course %></dd>
-
-      <dt>Entree</dt>
-      <dd><%= @party.entree_course %></dd>
-
-      <dt>Dessert</dt>
-      <dd><%= @party.dessert_course %></dd>
-
-      <dt>Alcohol</dt>
-      <dd><%= @party.alcohol_course %></dd>
-
-
-<div class="row-header">
-<h3>Party Needs vs Shopping List</h3>
-<h4>See how your shopping list compares to our food and beverage estimates for your party</h4>
-</div>
-
+<div class="col-sm-3">
 <table class="table table-striped">
   <tr>
-    <th>Course</th>
-    <th>Suggested quantities</th>
-    <th>Shopping list totals</th>
-    <th>Variance</th>
+    <th>Food Level</th>
+    <th>Drink Level</th>
   </tr>
-
   <tr>
-    <td>Appetizers</td>
-    <td><%= @appetizer_calc%> pieces</td>
-    <td><%= @party.total_servings('Appetizer')%> pieces</td>
-    <td><%= @party.comparison('Appetizer', @appetizer_calc)%> drinks (<%= @party.comparison_sign('Appetizer', @appetizer_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Entrees</td>
-    <td><%= @entree_calc%> pieces</td>
-    <td><%= @party.total_servings('Entree')%> pieces</td>
-    <td><%= @party.comparison('Entree', @entree_calc)%> drinks (<%= @party.comparison_sign('Entree', @entree_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Desserts</td>
-    <td><%= @dessert_calc%> pieces</td>
-    <td><%= @party.total_servings('Dessert')%> pieces</td>
-    <td><%= @party.comparison('Dessert', @dessert_calc)%> drinks (<%= @party.comparison_sign('Dessert', @dessert_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Non-Alcohol</td>
-    <td><%= @nonalcohol_calc%> pieces</td>
-    <td><%= @party.total_servings('Non-alcohol')%> pieces</td>
-    <td><%= @party.comparison('Non-alcohol', @nonalcohol_calc)%> drinks (<%= @party.comparison_sign('Non-alcohol', @nonalcohol_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Alcohol</td>
-    <td><%= @alcohol_calc%> pieces</td>
-    <td><%= @party.total_servings('alcohol')%> pieces</td>
-    <td><%= @party.comparison('alcohol', @alcohol_calc)%> drinks (<%= @party.comparison_sign('alcohol', @alcohol_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Flatware</td>
-    <td><%= @flatware_calc%> pieces</td>
-    <td><%= @party.total_servings('Flatware')%> pieces</td>
-    <td><%= @party.comparison('Flatware', @flatware_calc)%> drinks (<%= @party.comparison_sign('Flatware', @flatware_calc) %>)</td>
-  <tr>
-
-  <tr>
-    <td>Total v Budget</td>
-    <td><%= number_to_currency(@party.budget)%></td>
-    <td><%= number_to_currency(@party.total_cost)%></td>
-    <td><%= number_to_currency(@party.total_cost - @party.budget) %> (<%= @party.comparison_sign(@party.total_cost, @party.budget) %>)</td>
-  <tr>
+    <td><%= @party.food_level %></td>
+    <td><%= @party.drink_level %></td>
+  </tr>
 </table>
+</div>
+
+  <div class="col-sm-3">
+<table class="table table-striped">
+  <tr>
+    <th>Male Guests</th>
+    <th>Female Guests</th>
+  </tr>
+  <tr>
+    <td><%= @party.male_count %></td>
+    <td><%= @party.female_count %></td>
+  </tr>
+</table>
+</div>
+
+  <div class="col-sm-3">
+<table class="table table-striped">
+  <tr>
+    <th>Appetizer</th>
+    <th>Entree</th>
+    <th>Dessert</th>
+    <th>Alcohol</th>
+  </tr>
+  <tr>
+    <td><%= @party.appetizer_course %></td>
+    <td><%= @party.entree_course %></td>
+    <td><%= @party.dessert_course %></td>
+    <td><%= @party.alcohol_course %></td>
+  </tr>
+</table>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+    <div class="row-header">
+    <h3>Party Needs vs Shopping List</h3>
+    <h4>See how your shopping list compares to our food and beverage estimates for your party</h4>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Course</th>
+        <th>Suggested quantities</th>
+        <th>Shopping list totals</th>
+        <th>Variance</th>
+      </tr>
+
+      <tr>
+        <td>Appetizers</td>
+        <td><%= @appetizer_calc%> pieces</td>
+        <td><%= @party.total_servings('Appetizer')%> pieces</td>
+        <td><%= @party.comparison('Appetizer', @appetizer_calc)%> drinks (<%= @party.comparison_sign('Appetizer', @appetizer_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Entrees</td>
+        <td><%= @entree_calc%> pieces</td>
+        <td><%= @party.total_servings('Entree')%> pieces</td>
+        <td><%= @party.comparison('Entree', @entree_calc)%> drinks (<%= @party.comparison_sign('Entree', @entree_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Desserts</td>
+        <td><%= @dessert_calc%> pieces</td>
+        <td><%= @party.total_servings('Dessert')%> pieces</td>
+        <td><%= @party.comparison('Dessert', @dessert_calc)%> drinks (<%= @party.comparison_sign('Dessert', @dessert_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Non-Alcohol</td>
+        <td><%= @nonalcohol_calc%> pieces</td>
+        <td><%= @party.total_servings('Non-alcohol')%> pieces</td>
+        <td><%= @party.comparison('Non-alcohol', @nonalcohol_calc)%> drinks (<%= @party.comparison_sign('Non-alcohol', @nonalcohol_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Alcohol</td>
+        <td><%= @alcohol_calc%> pieces</td>
+        <td><%= @party.total_servings('alcohol')%> pieces</td>
+        <td><%= @party.comparison('alcohol', @alcohol_calc)%> drinks (<%= @party.comparison_sign('alcohol', @alcohol_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Flatware</td>
+        <td><%= @flatware_calc%> pieces</td>
+        <td><%= @party.total_servings('Flatware')%> pieces</td>
+        <td><%= @party.comparison('Flatware', @flatware_calc)%> drinks (<%= @party.comparison_sign('Flatware', @flatware_calc) %>)</td>
+      </tr>
+
+      <tr>
+        <td>Total v Budget</td>
+        <td><%= number_to_currency(@party.budget)%></td>
+        <td><%= number_to_currency(@party.total_cost)%></td>
+        <td><%= number_to_currency(@party.total_cost - @party.budget) %> (<%= @party.comparison_sign(@party.total_cost, @party.budget) %>)</td>
+      </tr>
+    </table>
+</dl>
+</div>
+</div>
+
 
     <div class="btn-group btn-group-justified">
       <a href="/parties" class="btn btn-primary">

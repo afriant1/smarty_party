@@ -39,7 +39,7 @@
       <!-- Label and input for duration -->
       <div class="form-group">
         <label for="duration" class="control-label">
-          Duration
+          Duration in hours
         </label>
 
         <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @party.duration %>">
@@ -66,7 +66,7 @@
       <!-- Label and input for food_level -->
       <div class="form-group">
         <label for="food_level" class="control-label">
-          Food level
+          Food level (up to 5)
         </label>
 
         <input type="text" id="food_level" name="food_level" placeholder="Food level" class="form-control" value="<%= @party.food_level %>">
@@ -75,7 +75,7 @@
       <!-- Label and input for drink_level -->
       <div class="form-group">
         <label for="drink_level" class="control-label">
-          Drink level
+          Drink level (up to 5)
         </label>
 
         <input type="text" id="drink_level" name="drink_level" placeholder="Drink level" class="form-control" value="<%= @party.drink_level %>">
@@ -90,47 +90,45 @@
         <input type="text" id="budget" name="budget" placeholder="Budget" class="form-control" value="<%= @party.budget %>">
       </div>
 
-      <!-- Label and input for appetizer_course -->
+      <!-- Label and input for courses -->
       <div class="form-group">
-        <label for="appetizer_course" class="control-label">
-          Appetizer course
+        <label for="courses" class="control-label">
+          Courses
         </label>
-
-        <input type="text" id="appetizer_course" name="appetizer_course" placeholder="Appetizer course" class="form-control" value="<%= @party.appetizer_course %>">
       </div>
 
-      <!-- Label and input for entree_course -->
-      <div class="form-group">
-        <label for="entree_course" class="control-label">
-          Entree course
-        </label>
+    <input type="hidden" id="appetizer_course" name="appetizer_course" value ="0">
+    <input type="hidden" id="entree_course" name="entree_course" value ="0">
+    <input type="hidden" id="dessert_course" name="dessert_course" value ="0">
+    <input type="hidden" id="alcohol_course" name="alcohol_course" value ="0">
 
-        <input type="text" id="entree_course" name="entree_course" placeholder="Entree course" class="form-control" value="<%= @party.entree_course %>">
-      </div>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="appetizer_course" name="appetizer_course" class="form-inline"  value ="1"> Appetizer
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="entree_course" name="entree_course" class="form-inline"  value = "1"> Entree
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="dessert_course" name="dessert_course" class="form-inline"  value ="1"> Dessert
+    </label>
+    <label class="btn btn-primary active">
+      <input type="checkbox" checked autocomplete="off" id="alcohol_course" name="alcohol_course" class="form-inline"  value ="1"> Alcohol
+    </label>
+  </div>
+<p></p>
+  </div>
 
-      <!-- Label and input for dessert_course -->
-      <div class="form-group">
-        <label for="dessert_course" class="control-label">
-          Dessert course
-        </label>
 
-        <input type="text" id="dessert_course" name="dessert_course" placeholder="Dessert course" class="form-control" value="<%= @party.dessert_course %>">
-      </div>
-
-      <!-- Label and input for alcohol_course -->
-      <div class="form-group">
-        <label for="alcohol_course" class="control-label">
-          Alcohol course
-        </label>
-
-        <input type="text" id="alcohol_course" name="alcohol_course" placeholder="Alcohol course" class="form-control" value="<%= @party.alcohol_course %>">
-      </div>
-
-      <button class="btn btn-warning">
+ <div class="form-group">
+  <div class="col-md-12">
+       <button class="btn btn-warning">
         Update Party
       </button>
       or
       <a href="/parties/<%= @party.id %>">Cancel</a>
     </form>
+ </div>
+ </div>
   </div>
 </div>

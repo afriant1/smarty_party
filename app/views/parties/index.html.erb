@@ -1,51 +1,39 @@
 <div class="page-header">
-  <h1>
-    Parties
-    <a href="/parties/new" class="btn btn btn-success">New Party</a>
-  </h1>
+<h1>
+Welcome to Smarty Party!
+</h1>
 </div>
+
+<h2>Your Parties</h2>
 
 <div class="row">
   <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Duration</th>
-        <th>Male guests</th>
-        <th>Female guests</th>
-        <th>Food level</th>
-        <th>Drink level</th>
-        <th>Budget</th>
-        <th>Appetizer course</th>
-        <th>Entree course</th>
-        <th>Dessert course</th>
-        <th>Alcohol course</th>
-        <th>Actions</th>
-      </tr>
-
+    <table class="table">
       <% @parties.each do |party| %>
       <tr>
-        <td><%= party.name %></td>
-        <td><%= party.date.strftime('%B %e, %Y') %></td>
-        <td><%= party.duration %> hours</td>
-        <td><%= party.male_count %></td>
-        <td><%= party.female_count %></td>
-        <td><%= party.food_level %></td>
-        <td><%= party.drink_level %></td>
-        <td><%= number_to_currency(party.budget) %></td>
-        <td><%= party.appetizer_course %></td>
-        <td><%= party.entree_course %></td>
-        <td><%= party.dessert_course %></td>
-        <td><%= party.alcohol_course %></td>
         <td>
-          <a href="/parties/<%= party.id %>" class="btn btn-primary">View</a>
-          <a href="/parties/<%= party.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_party/<%= party.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-          <a href="/parties/<%= party.id %>/shopping_list" class="btn btn-success" rel="nofollow">Shopping List</a>
+        <a href="/parties/<%= party.id %>" class="btn btn-primary"><%= party.name %></a>
+        <a href="/parties/<%= party.id %>/edit" class="btn btn-warning-outline">Edit</a>
+         <a href="/delete_party/<%= party.id %>" class="btn btn-danger-outline" rel="nofollow">Delete</a>
+         <a href="/parties/<%= party.id %>/shopping_list" class="btn btn-success-outline" rel="nofollow">Shopping List</a>
         </td>
       </tr>
       <% end %>
+</table>
+</div>
+</div>
+
+<h2>Get Planning</h2>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+  <tr>
+    <td>
+      <a href="/parties/new" class="btn btn btn-success">New Party</a>
+      <a href="/items/" class="btn btn btn-primary">See Items</a>
+        <a href="/items/new" class="btn btn btn-warning">Add Items</a>
+    </td>
+    </tr>
     </table>
   </div>
 </div>

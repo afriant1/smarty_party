@@ -33,12 +33,11 @@
           Category
         </label>
 
-        <input type="text" id="category" name="category" placeholder="Category (e.g. Appetizer, Entree, Dessert, Non-Alcohol, Other, etc)" class="form-control" value="<%= @item.category %>">
-      </div>
+        <%= select_tag :category, options_for_select([["Appetizer", "Appetizer"], ["Entree", "Entree"], ["Dessert", "Dessert"], ["Alcohol", "Alcohol"], ["Non-Alcohol", "Non-Alcohol"], ["Flatware", "Flatware"], ["Other", "Other"]], @item.category), :class => "form-control" %>
 
       <!-- Label and input for amount -->
       <div class="form-group">
-        <input type="hidden" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @item.amount %>">
+        <input type="hidden" id="amount" name="amount" placeholder="Amount" class="form-control" value="1">
       </div>
 
       <!-- Label and input for units -->

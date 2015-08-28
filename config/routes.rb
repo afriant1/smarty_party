@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'pages#dashboard'
+  root 'parties#index'
 
   # Routes for the Shopping_list resource:
   # CREATE
