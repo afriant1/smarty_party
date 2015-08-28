@@ -21,7 +21,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list.party_id = params[:party_id]
     @shopping_list.quantity = params[:quantity]
     @shopping_list.delegation_status = params[:delegation_status]
-    @shopping_list.user_id = params[:user_id]
+    @shopping_list.owner = params[:owner]
     @shopping_list.notes = params[:notes]
 
    if @shopping_list.save
@@ -43,7 +43,7 @@ class ShoppingListsController < ApplicationController
     @shopping_list.party_id = params[:party_id]
     @shopping_list.quantity = params[:quantity]
     @shopping_list.delegation_status = params[:delegation_status]
-    @shopping_list.user_id = params[:user_id]
+    @shopping_list.owner = params[:owner]
     @shopping_list.notes = params[:notes]
 
     if @shopping_list.save

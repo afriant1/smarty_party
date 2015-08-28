@@ -37,11 +37,11 @@
         <td><%= party_request_list.quantity.to_i*party_request_list.item.serving_size.to_i %></td>
         <td><%= number_to_currency(party_request_list.item.price*party_request_list.quantity.to_i) %></td>
         <td><%= party_request_list.delegation_status %></td>
-        <td><%= party_request_list.user_id %></td>
+        <td><%= party_request_list.owner %></td>
         <td><%= party_request_list.notes %></td>
         <td><span>
-          <a href="/shopping_lists/<%= party_request_list.id %>/edit" class="btn btn-warning custom">Edit</a>
-          <a href="/delete_shopping_list/<%= party_request_list.id %>" class="btn btn-danger custom" rel="nofollow">Delete</a>
+          <a class="btn btn-warning" href="/shopping_lists/<%= party_request_list.id %>/edit"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" rel="nofollow" data-method="delete" href="<%= party_request_list.id %>"><i class="fa fa-trash-o"></i></a>
         </td></span>
       </tr>
       <% end %>

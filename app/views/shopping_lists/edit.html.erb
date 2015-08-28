@@ -46,13 +46,13 @@
         <%= select_tag :delegation_status, options_for_select([["Host", "Host"], ["Unclaimed", "Unclaimed"], ["Guest", "Guest"], ["In possession", "In possession"]], @shopping_list.delegation_status), :class => "form-control" %>
       </div>
 
-      <!-- Label and input for user_id -->
+      <!-- Label and input for owner -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <label for="owner" class="control-label">
           Owner
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @shopping_list.user_id %>">
+        <input type="text" id="owner" name="owner" placeholder="Host or name of guest bringing item" class="form-control" value="<%= @shopping_list.owner %>">
       </div>
 
       <!-- Label and input for notes -->
