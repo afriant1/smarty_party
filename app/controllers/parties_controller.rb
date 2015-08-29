@@ -76,8 +76,8 @@ class PartiesController < ApplicationController
     @party.dessert_course = params[:dessert_course]
     @party.alcohol_course = params[:alcohol_course]
 
-    if @party.save
-      redirect_to "/parties", :notice => "Party updated successfully."
+      if @party.save
+        redirect_to("/parties/#{@party.id}")
     else
       render 'edit'
     end
